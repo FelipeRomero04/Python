@@ -21,7 +21,7 @@ p = n1**n2
 r = n1%n2
 
 print('A soma dos produtos é {}, a subtração é {}, a multiplicação é {}'.format(a, s, m), end=' ')
-
+# end - PARA CONTINUAR NA MESMA LINHA
 # NAO ESQUEÇA DA VIRGULA
 
 print(f'a divisão é {d:.0f} \na divisão inteira é {di}, a potencia é {p}, e o resto é {r}')
