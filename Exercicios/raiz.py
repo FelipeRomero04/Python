@@ -1,5 +1,3 @@
-import match
-
 n1=int(input('Digite um número: '))
 
 print(f'O dobro de {n1} vale {n1*2}')
