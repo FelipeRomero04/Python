@@ -1,4 +1,3 @@
 frase = 'curso em video python'
 
-
-print(frase[9])
+print(frase[3:13])
