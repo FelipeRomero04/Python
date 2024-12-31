@@ -4,7 +4,6 @@ m = (n1 + n2) / 2
 
 if m >= 6:
     print(f'Sua média é {m:.2f}. Você está na media! Parabéns')
-if m <= 5:
+else:
     print(f'Sua média é {m:.2f}. Você está de recuperação!')
-else m == 0:
-    print(f'Sua média é {m:.2f}. Você repetiu!')
+
