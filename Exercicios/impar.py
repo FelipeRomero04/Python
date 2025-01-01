@@ -1,5 +1,6 @@
-n = str(input('Me diga um número qualquer: '))
-l = [1, 3, 5, 7, 9]
-
-if n[-1] == [1, 3, 5, 7, 9]:
-    print('Impar')
+a = float(input('Digite um número: '))
+b = a/2
+if b == int(b):
+    print('Este número é par!')
+else:
+    print('Este número é ímpar!')
