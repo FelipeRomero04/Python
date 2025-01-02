@@ -9,7 +9,7 @@ else:
 #METODO GUSTAVO GUANABARA
 
 '''num = int(input('Digite um número aleatorio: '))
-result = str(num % 2)
+result = num % 2
 
 if result == 0:
     print('É um número PAR')
@@ -19,10 +19,10 @@ else:
 
 #OUTRO METEDO
 
-num = str(input('Digite um número: '))
-par = (num / 2) * 2
+num = int(input('Digite um número: '))
+par = (num // 2) * 2
 
-if par == int(num):
+if par == num:
     print(f'O número {num} é PAR!')
 else:
     print(f'O número {num} é IMPAR!')
