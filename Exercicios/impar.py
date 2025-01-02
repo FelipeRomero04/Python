@@ -1,10 +1,10 @@
-num = input('Digite um número aleatório: ')
+'''num = input('Digite um número aleatório: ')
 impar =  ['1', '3', '5', '7', '9']
 
 if num[-1] in impar:
     print('É um número Impar')
 else:
-    print('É um número Par')  
+    print('É um número Par')  '''
 
 #METODO GUSTAVO GUANABARA
 
@@ -17,6 +17,14 @@ else:
     print('É um número IMPAR')'''
 
 
+#OUTRO METEDO
 
+num = str(input('Digite um número: '))
+par = (num / 2) * 2
+
+if par == int(num):
+    print(f'O número {num} é PAR!')
+else:
+    print(f'O número {num} é IMPAR!')
 
 
