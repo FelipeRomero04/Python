@@ -1,16 +1,14 @@
-import time
+from time import localtime
 
-meuano = time.localtime().tm_year
-ano = int(input('Que ano quer analisar? Coloque zero pra analisar o ano atual: '))
+ano = int(input('Que ano quer analisar? Coloque 0 pra analisar o ano atual: '))
 
 if ano == 0:
-    ano = meuano  # Atribui o ano atual caso o usuário coloque 0
+    ano = localtime().tm_year #O tm_year nao possui (), pois é um atributo de localtime, tendo varios(year, day, hour... ). Essa e a forma correta de selecionar um
 
-# Verifica se o ano é bissexto
 if (ano % 4 == 0 and ano % 100 != 0) or (ano % 400 == 0):
-    print(f'O ano de {ano} é bissexto.')
+    print(f'O ano de {ano} é BISSEXTO')
 else:
-    print(f'O ano de {ano} NÃO é bissexto.')
+    print(f'O ano de {ano} NÂO É BISSEXTO')
 
 
 
