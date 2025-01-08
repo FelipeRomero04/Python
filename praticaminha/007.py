@@ -14,3 +14,9 @@ if max(converter) != converter[0] and min(converter) != converter[0]:
 
 
 
+
+# 1, 2, 3
+# 3, 2, 1
+# 3, 5, 1
+
+
