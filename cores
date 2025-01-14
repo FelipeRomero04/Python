@@ -13,4 +13,4 @@ text                    background
 
 exemplo
 
-\003[97;41m
+\033[97;41m
