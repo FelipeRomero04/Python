@@ -1,6 +1,9 @@
 from random import choice 
 from time import sleep
 
+playervic = 0
+pcvic = 0
+
 print(''' Suas opções:
 [ 1 ] Pedra
 [ 2 ] Papel
@@ -35,22 +38,19 @@ print('=-'*20)
 
 if 'Papel' in computador and jogador == 'Pedra' or 'Pedra' in computador and jogador == 'Tesoura' or 'Tesoura' in computador and jogador == 'Papel':
     print('Computador venceu')
+    pcvic += 1
 
 elif jogador == computador:
     print('Empatou')
+    pcvic += 0
+    playervic += 0
 
 else:
     print('O jogador venceu')
+    playervic += 1
 
 
 
-#nao precisa das vara
 
 
-    # papel ganha de pedra
-    # pedra ganha de papel
-    # 
-    #pedra ganha de tesoura
-    #tesoura ganha de papel
-
-# 'Papel' in computador and jogador == 'Pedra' or 'Pedra' in computador and jogador == 'Tesoura' or 'Tesoura' in computador and jogador == 'Papel':
+# OUTRO MÉTODO NA PASTA 'PRATICAMINHA'
