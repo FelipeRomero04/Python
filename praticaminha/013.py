@@ -73,17 +73,17 @@ if len(partes) == 2:
     usuario = partes[0]
     dominio = partes[1]
 else: 
-    print('invalido')
+    print('Email invalido. Tente novamente!')
 if usuario == '':
-    print('invaldio')
+    print('Email invaldio. Tente novamente!')
 elif dominio == '':
-    print('invalido')
+    print('Email invalido. Tente novamente!')
 elif '.com' not in email:
-    print('invalido')
+    print('Email invalido. Tente novamente!')
 
 else:
-    print(usuario)
-    print(dominio)
+    print(f'Usuário: {usuario}')
+    print(f'Domínio: {dominio}')
 
 
 
