@@ -4,11 +4,13 @@ print('='*22)
 
 termo = int(input('Primeiro termo: '))
 razao = int(input('Razão: '))
-fim = (10 * termo) + 1
-
-if fim == 1:
-    fim = razao * 10
+fim = (razao * 10) + termo # SOMANDO AO TERMO O PROGRAMA GARANTE Q SEMPRE CHEGARA AO DECIMO E NAO PASSARÁ DISSO, JÁ QUE O SEGUNDO PARAMETRO(fim), PARA 1 NUMERO ANTES
+cont = 0
 
 for c in range(termo, fim, razao):
     print(f'{c} => ', end='')
-print('ACABOU', end='')
+    cont += 1
+print('ACABOU')
+print(f'Esses são os {cont} número de sua PA')
+
+
