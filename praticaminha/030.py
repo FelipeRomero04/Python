@@ -1,15 +1,20 @@
 homens = []
 mulheres = []
 total = []
+invalido = ['1','2','3','4','5','6','7','8','9','0']
 
-for info in range(1,6):
+for info in range(1,5):
     print(f'-------{info}ª PESSOA-------')
     nome = str(input('Nome: ')).title()
+    if any(inv in invalido for inv in nome):
+        print('Nome inválido. Tente novamente.')
+        exit()
+
     idade = int(input('Idade: '))
     sexo = str(input('Sexo [M/F]: ')).upper()
     total.append(idade)
     
-    if sexo == 'M':
+    if sexo == 'M': #cria uma lista de dicionarios
         homens.append({'nome': nome, 'idade': idade, 'sexo': sexo})
         maior_idade = homens[0]
 
