@@ -1,6 +1,6 @@
 from random import randint
 
-computador = randint(1, 50)
+computador = randint(1, 10)
 usuario = int(input('Adivinhe o número que o computador está pensando: '))
 tentativa = 0
 
@@ -11,12 +11,13 @@ while True:
         print(f'--------//---------\nVocê errou {tentativa} vezes')
         exit()
     if computador != usuario:
+        usuario = int(input('Você ERROU! Tente novamente: '))
+        tentativa += 1
         if computador < usuario:
             print('O numero que eu pensei É MENOR\n----------//----------')
         if computador > usuario: 
             print('O número que eu pensei É MAIOR\n----------//---------')
-        usuario = int(input('Você ERROU! Tente novamente: '))
-        tentativa += 1
+        
             
 # A FORMA ACIMA E ABAIXO SAO ORIGINAIS. IREI TENTAR UMA FORMA MAIS OTIMIZADA ULTILIZANDO O CODIGO DO CHATGPT COMO BASE NO 034.py
 

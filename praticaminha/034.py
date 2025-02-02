@@ -3,7 +3,7 @@ from random import randint
 print('------ Bem Vindo ao jogo da adivinhação! ------')
 print('Tente acertar o numero que o computador ta pensando')
 
-computador = randint(1, 3)
+computador = randint(1, 50)
 tentativas = 0
 
 while True:
