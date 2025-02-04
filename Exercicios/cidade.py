@@ -8,7 +8,7 @@ print('santo' in cid[0])
 
 cid = str(input('Qual cidade você nasceu? ')).strip()
 
-print(cid.lower().startswith('santo'))
+print(cid.lower().startswith('santo')) # Retorna True se começar com 'santo'
 
 
 
