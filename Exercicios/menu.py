@@ -3,16 +3,14 @@ from time import sleep
 n1 = float(input('Primeiro valor: '))
 n2 = float(input('Segundo valor: '))
 
-while True:
-    print('=-' * 30)
-    print('''
-    [ 1 ] Somar
-    [ 2 ] Multiplicar
-    [ 3 ] Maior
-    [ 4 ] Novos numeros  
-    [ 5 ] Sair do programa''')
+if n1 == int(n1):
+    n1 = int(n1)
 
-    opcao = str(input('>>>>> Digite sua opção: '))
+while True:
+    print('''[ 1 ] Somar\n[ 2 ] Multiplicar\n[ 3 ] Maior\n[ 4 ] Novos numeros\n[ 5 ] Sair do programa''')
+
+    opcao = int(input('>>>>> Digite sua opção: '))
+    
 
     if opcao == 1:
         r = n1 + n2
@@ -23,6 +21,8 @@ while True:
     elif opcao == 3:
         if n1 > n2:
             print(f'O numero {n1} é maior que o {n2}.')
+        elif n1 == n2:
+            print(f'Os número {n1} e {n2} são iguais.')
         else:
             print(f'O numero {n2} é mairo que o {n1}.')
     elif opcao == 4:
@@ -33,6 +33,8 @@ while True:
         print('Finalizando...')
         sleep(2)
         break
+    sleep(2)
+    print('=-' * 20)
    
 print('Fim do programa! Volte sempre!')
 
