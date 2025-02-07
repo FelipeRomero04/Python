@@ -1,4 +1,8 @@
 import random
+from os import system
+
+system('cls')
+
 
 baralho = [
     ('A♦️', 11), ('A♠️', 11), ('A♥️', 11), ('A♣️', 11),  
@@ -35,10 +39,20 @@ while True:
     valor_jogador  = jogador[0][1] + jogador[1][1]
     valor_pc = pc[0][1] + pc[1][1]
     print(f'Suas cartas: [{jogador [0][0]}] e [{jogador[1][0]}] -> valor: {valor_jogador} ')
-    print(f'Carta visível do Dealer {pc[0]}')
+    print(f'Carta visível do Dealer [{pc[0][0]}]\n')
+
+    if valor_jogador > 21:
+        print('Que AZAR! Suas cartas ESTOURARAM o limite')
+        break
+    elif valor_pc > 21:
+        print(f'Sorte sua! A carta escondida era um: [{pc[1][0]}]\n O Dealer ESTOROU!')
+        break
 
     escolha = int(input('Escolha: (1)Pedir carta | (2) Parar\n> '))
-    
+    escolha_pc = random.randint(1,2)
+
+    print(escolha_pc)
+
     if escolha == 1:
         carta = random.choice(baralho)
         jogador.append(carta)
@@ -48,12 +62,41 @@ while True:
         print(f'Suas cartas [{jogador[0][0]}] ,[{jogador[1][0]}] ,[{jogador[2][0]}], Total: {valor_jogador}')
         if valor_jogador > 21:  
             print('O Jogador ESTOROU!\n======= O Dealer Venceu! =======')
+            break
+
+        if escolha_pc == 1:
+            carta = random.choice(baralho)
+            pc.append(carta)
+            baralho.remove(carta)
+            print(f'Dealer compra mais uma carta: [{pc[2][0]}] ')
+            valor_pc += pc[2][1]
+            print(f'Dealer revela suas cartas: [{pc[0][0]}],[{pc[1][0]}],[{pc[2][0]}], Total: {valor_pc}')
+            if valor_pc > 21:
+                print('O Dealer ESTOROU! Jogador vencedor') 
+                break
+            elif valor_pc > valor_jogador:
+                print('O dealer ganhou!')
+            elif valor_pc < valor_jogador:
+                print('O jogador venceu!')
+            else:
+                print('Empate')
+
+            #bug de jogador vencer e empatar ao msm tempo
+
+
+
+        if escolha_pc == 2:
+            print('O Dealer resolveu parar!')
+            print(f'Dealer revela suas cartas: [{pc[0][0]}],[{pc[1][0]}] Total: {valor_pc}')
+            if valor_pc > valor_jogador:
+                print('O Dealer ganhou!')
+            if valor_pc < valor_jogador:
+                print('O jogador ganhou!')
+            else:
+                print('Empataram')
         break
 
-        #AGORA TEM Q FAZER AS ESCOLHAS DO DEALER NO CENARIO QUE EU PEDI CARTA, CRIANDO O ESCOLHA_PC
-
-        #se nao o dealer escolhe e as cartas sao mostadas
-    if escolha == 2:                      # Mostrar naipe segunda [] sempre 0               
+    if escolha == 2: # Mostrar naipe segunda [] sempre 0               
         escolha_pc = random.randint(1,2)
          #NESSA OPCAO O JOGADOR PARA, LOGO SOMENTE O DEALER TEM A OPCAO DE PARAR TBM OU CONTINUAR
         if escolha_pc == 1: #dealer compra
