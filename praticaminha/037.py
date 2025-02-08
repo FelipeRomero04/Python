@@ -38,61 +38,79 @@ while True:
 
     valor_jogador  = jogador[0][1] + jogador[1][1]
     valor_pc = pc[0][1] + pc[1][1]
-    print(f'Suas cartas: [{jogador [0][0]}] e [{jogador[1][0]}] -> valor: {valor_jogador} ')
-    print(f'Carta visível do Dealer [{pc[0][0]}]\n')
+    print('Suas cartas: ')
+    for cartas in jogador:
+        print(f'[{cartas[0]}]',end=' ')
+    print(f'Total: {valor_jogador}',end=' ')
+    print(f'\nCarta visível do Dealer [{pc[0][0]}]\n')
 
-    if valor_jogador > 21:
+    #USAR FOR SEMPRE QUE FOR IMPRIMIR AS CARTAS, PARA N TER QUE USAR INDICES INEXISTENTES CASO MAIS CARTAS FOREM COMPRADAS(NO CASO ESSA OPÇÃO NÃO ESTA DISPONIVEL NO PROGRAMA)
+    if valor_jogador == 21:
+        print('Inacreditável! Suas cartas já formam 21!')
+        break
+    elif valor_jogador > 21:
         print('Que AZAR! Suas cartas ESTOURARAM o limite')
         break
     elif valor_pc > 21:
-        print(f'Sorte sua! A carta escondida era um: [{pc[1][0]}]\n O Dealer ESTOROU!')
+        print(f'Sorte sua! A carta escondida era um: [{pc[1][0]}]\nTotal: {valor_pc}\nO Dealer ESTOROU!')
         break
 
     escolha = int(input('Escolha: (1)Pedir carta | (2) Parar\n> '))
     escolha_pc = random.randint(1,2)
 
-    print(escolha_pc)
-
     if escolha == 1:
         carta = random.choice(baralho)
         jogador.append(carta)
         baralho.remove(carta)
-        print(f'Voce comprou {jogador[2][0]}')
+        print(f'Voce comprou: {jogador[2][0]}')
         valor_jogador += jogador[2][1]
-        print(f'Suas cartas [{jogador[0][0]}] ,[{jogador[1][0]}] ,[{jogador[2][0]}], Total: {valor_jogador}')
-        if valor_jogador > 21:  
+        print('Suas cartas: ')
+        for cartas in jogador:
+            print(f'[{cartas[0]}]',end=' ') #Mostra todas cartas dentro da lista(somente o naipe)
+        print(f'Total: {valor_jogador}\n',end=' ')
+        if valor_jogador == 21:
+            print(f'Jogador Ganhou!')
+            break
+        elif valor_jogador > 21:  
             print('O Jogador ESTOROU!\n======= O Dealer Venceu! =======')
             break
+        
 
         if escolha_pc == 1:
             carta = random.choice(baralho)
             pc.append(carta)
-            baralho.remove(carta)
-            print(f'Dealer compra mais uma carta: [{pc[2][0]}] ')
+            baralho.remove(carta)  #carta é removida do baralho
             valor_pc += pc[2][1]
-            print(f'Dealer revela suas cartas: [{pc[0][0]}],[{pc[1][0]}],[{pc[2][0]}], Total: {valor_pc}')
+            print('\nDealer resolveu comprar: ')
+            print('Dealer revela suas cartas: ')
+            for cartas in pc:
+                print(f'[{cartas[0]}]',end=' ')
+            print(f'Total: {valor_pc}\n', end=' ')
             if valor_pc > 21:
                 print('O Dealer ESTOROU! Jogador vencedor') 
                 break
             elif valor_pc > valor_jogador:
-                print('O dealer ganhou!')
+                print('O Dealer Ganhou!')
             elif valor_pc < valor_jogador:
-                print('O jogador venceu!')
+                print('O jogador Ganhou!')
             else:
                 print('Empate')
-
+        
             #bug de jogador vencer e empatar ao msm tempo
 
 
 
         if escolha_pc == 2:
-            print('O Dealer resolveu parar!')
-            print(f'Dealer revela suas cartas: [{pc[0][0]}],[{pc[1][0]}] Total: {valor_pc}')
+            print('\nO Dealer resolveu parar!')
+            print(f'Dealer revela suas cartas: ')
+            for cartas in pc:
+                print(f'[{cartas[0]}]',end=' ')
+            print(f'Total: {valor_pc}\n',end=' ')
             if valor_pc > valor_jogador:
-                print('O Dealer ganhou!')
-            if valor_pc < valor_jogador:
-                print('O jogador ganhou!')
-            else:
+                print('O Dealer Ganhou!')
+            elif valor_pc < valor_jogador:
+                print('O jogador Ganhou!')
+            elif valor_jogador == valor_pc:
                 print('Empataram')
         break
 
@@ -105,13 +123,16 @@ while True:
             baralho.remove(carta)  #remove a carta do baralho pra não ter repetições
             print(f'Dealer compra mais uma carta: [{pc[2][0]}]')  
             valor_pc += pc[2][1]
-            print(f'Dealer revela suas cartas: [{pc[0][0]}], [{pc[1][0]}], [{pc[2][0]}], Total: {valor_pc}')
+            print('Dealer revela suas cartas: ')
+            for cartas in pc:
+                print(f'[{cartas[0]}]',end=' ')
+            print(f'Total: {valor_pc}',end=' ')
             if valor_pc > 21:
-                print('O Dealer ESTOROU!\n========= Você Ganhou ===========')
+                print('\nO Dealer ESTOROU!\n========= Você Ganhou ===========')
             elif valor_pc <= 21 and valor_pc < valor_jogador:
-                print(f'O Jogador Venceu! // jogador {valor_jogador} X {valor_pc} Dealer')
+                print(f'\nO Jogador Venceu!\njogador {valor_jogador} X {valor_pc} Dealer\n')
             elif valor_pc <= 21 and valor_pc > valor_jogador:
-                print(f'======== O Dealer Venceu! =======\n\nDealer {valor_pc} X {valor_jogador} Jogador2\n ')
+                print(f'\n======== O Dealer Venceu! =======\n\nDealer {valor_pc} X {valor_jogador} Jogador2\n ')
             break
             
         if escolha_pc == 2: #dealer para
