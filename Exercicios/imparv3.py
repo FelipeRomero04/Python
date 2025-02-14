@@ -13,11 +13,11 @@ while True:
     while jogador > 10:
         print(f'Você não tem {jogador} dedos nas mãos. Jogue novamente!')
         jogador = int(input('Diga um valor: '))
-    opcao = str(input('Par ou Ímpar[P/I]? ')).strip()[0]
+    opcao = str(input('Par ou Ímpar[P/I]? ')).strip()[0] #pode declarar uma string vazia, inves de repetir 
     while not opcao in 'PpIi': #Ou while opcao not in 'PpIi'
         print('Opcão ínvalida! Tente Novamente')
-        opcao = str(input('Par ou Ímpar[P/I]? '))
-    computador = randint(9,10)
+        opcao = str(input('Par ou Ímpar[P/I]? ')).strip()[0] #comando repetido 
+    computador = randint(0,10)
     total = jogador + computador
     print('-='*30)
     print(f'Você jogou {jogador} e o computador {computador}. Total de {total}! Deu {'PAR' if total % 2 == 0 else 'IMPAR'}')
