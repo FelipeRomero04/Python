@@ -6,10 +6,10 @@ print('--' * 20)
 print(' ' * 10, 'LOJAS SUPER BARATÃO')
 print('--' * 20)
 
-total = milhar = menor_valor = 0
+total = mil = 0
 barato = ''
-carrinho = []
 
+carrinho = []
 
 while True:
 
@@ -18,29 +18,25 @@ while True:
     
     while True:
         try:
-            preco = float(input('Preço: '))
+            preco = float(input('Preço R$ '))
             if preco > 0:
-
                 break   
             print('Valor incorreto.')
         except ValueError:
             print('Erro. Tente Novamente!')
 
-    carrinho.append(preco)
-    menor_valor = carrinho[0]
-    
-    if preco < menor_valor:
-        menor_valor = preco
-        
-
-
-
     total += preco
 
-    
-    
-    
+    if preco > 1000:
+        mil += 1
 
+    carrinho.append({ #Gera um dicionario a cada repeticao
+        'produto': produto,
+        'valor': preco
+    })
+        
+    menor_valor = min(carrinho, key= lambda x: x['valor'])
+    #Procura pelo menor ['valor'] percorrendo todos dicionarios
 
     while True:
         opcao = str(input('Quer continuar[S/N]? ')).strip().upper()
@@ -49,8 +45,9 @@ while True:
     if opcao in ('N','NAO', 'NÃO'):
         break
 
-print(barato)
-
+print(f'O total da compra foi de R${total}')
+print(f'Temos {mil} {'produto' if mil == 1 else 'produtos'} custando mais de R$1000.00')
+print(f'O produto mais barato foi {menor_valor['produto']} custando R${menor_valor['valor']}')
 
 
 
