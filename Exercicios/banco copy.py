@@ -3,15 +3,19 @@ from os import system
 system('cls')
 
 saque = float(input('Valor do saque: '))
-cedula = [50, 20, 10 , 1]
+# cedula = {'50': 50, '20': 20, '10':10}
+cedula = [50, 20, 10, 1]
+nota = cedula[0]
 cont50 = cont20 = cont10 = cont1 = 0
 
-while True:
-    for c in cedula:
-        while c == 50:
-            if saque >= c:
-                saque -= c
-           
+while saque != 0:
+    for valor in cedula:
+        if saque >= cedula[0]:
+            saque -= cedula[0]
+        else:
+            cedula.remove(cedula[0])           
+
+print(saque)
 
 
             
@@ -36,7 +40,8 @@ while True:
 
 
 
-'''while True:
+'''
+while True:
     while True:
         if saque >= cedula:
             saque -= cedula
