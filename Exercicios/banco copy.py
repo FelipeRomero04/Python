@@ -3,19 +3,34 @@ from os import system
 system('cls')
 
 saque = float(input('Valor do saque: '))
-# cedula = {'50': 50, '20': 20, '10':10}
+
 cedula = [50, 20, 10, 1]
-nota = cedula[0]
-cont50 = cont20 = cont10 = cont1 = 0
+indice = 0   #Variavel para ser usada com indice
+cont = [0, 0, 0, 0]
 
 while saque != 0:
-    for valor in cedula:
-        if saque >= cedula[0]:
-            saque -= cedula[0]
-        else:
-            cedula.remove(cedula[0])           
+    if saque >= cedula[0]:
+        saque -= cedula[0]
+        cont[indice] += 1
+            
+    else:
+        cedula.remove(cedula[0]) 
+        indice += 1 #Atualizando o indice para andar pra frente, conforme as cedula mudam
+           
+for c, qnts in cedula, cont:
+    
+    print(f'Total de {qnts} cédulas de R${c}')
 
-print(saque)
+#VAI NO CHATGPT E LEIA A EXPLICAÇÂO NO ULTIMO CHAT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+    #print(f'Total de {cont[0]} cedula de R$50')
+
+  
+
+
+
+
 
 
             
