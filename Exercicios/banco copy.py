@@ -3,10 +3,40 @@ from os import system
 system('cls')
 
 saque = float(input('Valor do saque: '))
-cedula = 50
+cedula = [50, 20, 10 , 1]
 cont50 = cont20 = cont10 = cont1 = 0
 
 while True:
+    for c in cedula:
+        while c == 50:
+            if saque >= c:
+                saque -= c
+           
+
+
+            
+            
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+'''while True:
     while True:
         if saque >= cedula:
             saque -= cedula
@@ -44,11 +74,7 @@ while True:
     
     if saque == 0:
         break
-
-print(f'Total de {cont50} cédulas de R$50')
-print(f'Total de {cont20} cédulas de R$20')
-print(f'Total de {cont10} cédulas de R$10')
-print(f'Total de {cont1} cédulas de R$1')
+'''
 
 
 
