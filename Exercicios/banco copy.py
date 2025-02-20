@@ -17,10 +17,12 @@ while saque != 0:
         cedula.remove(cedula[0]) 
         indice += 1 #Atualizando o indice para andar pra frente, conforme as cedula mudam
            
-for c, qnts in cedula, cont:
+for c, qnts in zip(cedula, cont): #Para percorrer duas listas ao mesmo tempo zip()
     
-    print(f'Total de {qnts} cédulas de R${c}')
-
+    print(f'{c}')
+    
+    
+        
 #VAI NO CHATGPT E LEIA A EXPLICAÇÂO NO ULTIMO CHAT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
