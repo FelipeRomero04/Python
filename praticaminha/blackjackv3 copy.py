@@ -26,21 +26,28 @@ pc = []
 while True:
     while len(jogador) != 2 and len(pc) != 2:
         carta = random.choice(baralho)
-        pc.append(carta)
+        pc.append({
+            'naipe': carta[0],
+            'valor': carta[1]
+        })
+        valor_pc = sum(v['valor'] for v in pc )
         carta = random.choice(baralho)
-        jogador.append(carta)
+        jogador.append({
+            'naipe': carta[0],
+            'valor': carta[1]
+        })
+        valor_jogador = sum(v['valor'] for v in jogador)    
         baralho.remove(carta) 
     
-    valor_jogador  = sum(jogador)[1]
-    valor_pc = sum(pc)[1]
-
-    #PEnsar forma mais eficaz de somar os valores
+   
+    # v é um dicionario a cada iteraçao, v['valor'] e a chave desse dicionario que quero
 
     print('Suas cartas: ')
     for cartas in jogador:
-        print(f'[{cartas[0]}]',end=' ')
+        print(f'[{cartas['naipe']}]',end=' ')
     print(f'Total: {valor_jogador}',end=' ')
-    print(f'\nCarta visível do Dealer [{pc[0][0]}]\n')
+    print(f'\nCarta visível do Dealer [{pc[0]['naipe']}]\n')
+    
 
     #USAR FOR SEMPRE QUE FOR IMPRIMIR AS CARTAS, PARA N TER QUE USAR INDICES INEXISTENTES CASO MAIS CARTAS FOREM COMPRADAS(NO CASO ESSA OPÇÃO NÃO ESTA DISPONIVEL NO PROGRAMA)
     if valor_jogador == 21:
@@ -50,7 +57,7 @@ while True:
         print('Que AZAR! Suas cartas ESTOURARAM o limite')
         break
     elif valor_pc > 21:
-        print(f'Sorte sua! A carta escondida era um: [{pc[1][0]}]\nTotal: {valor_pc}\nO Dealer ESTOROU!')
+        print(f'Sorte sua! A carta escondida era um: [{pc[1]['naipe']}]\nTotal: {valor_pc}\nO Dealer ESTOROU!')
         break
 
     escolha = int(input('Escolha: (1)Pedir carta | (2) Parar\n> '))
@@ -66,22 +73,37 @@ while True:
         escolha_pc = 1
     
 
-    def comprar_cartas():
+    def comprar_cartasjg():
         carta = random.choice(baralho)
-        if escolha == 1:
-            jogador.append(carta)
-        if escolha_pc == 1:
-            pc.append(carta)
+        jogador.append({
+            'naipe': carta[0],
+            'valor': carta[1]
+        })
         baralho.remove(carta)
+        return carta
+    
+    newcard_jg = comprar_cartasjg()
+    
+    def comprar_cartaspc():
+        carta = random.choice(baralho)
+        pc.append({
+            'naipe': carta[0],
+            'valor': carta[1]
+        })
+        baralho.remove(carta)
+        return carta #permanecer o valor fora da função
 
+    newcard_pc = comprar_cartaspc() #passando o retorno da funcão para reutilizar o valor
+    
+    #DESCOBRIR POR QUE KARALHO SEMPRE QUE EU CHAMO A FUNCAO ELE COMPRA DUAS CARTAS CAPETA
 
     if escolha == 1:
-        comprar_cartas()
-        print(f'Voce comprou: {jogador[2][0]}')
-        valor_jogador = sum(jogador)[1]
+        comprar_cartasjg()
+        print(f'Voce comprou: [{newcard_jg[0]}]')
+        valor_jogador += newcard_jg[1]
         print('Suas cartas: ')
         for cartas in jogador:
-            print(f'[{cartas[0]}]',end=' ') #Mostra todas cartas dentro da lista(somente o naipe)
+            print(f'[{cartas}]',end=' ') #Mostra todas cartas dentro da lista(somente o naipe)
         print(f'Total: {valor_jogador}\n',end=' ')
         if valor_jogador == 21:
             print(f'Jogador Ganhou!')
@@ -89,15 +111,14 @@ while True:
         elif valor_jogador > 21:  
             print('O Jogador ESTOROU!\n======= O Dealer Venceu! =======')
             break
-        
-    
+'''
         if escolha_pc == 1:
             comprar_cartas()  #carta é removida do baralho
-            valor_pc = sum(pc)[1]
+            valor_pc += carta[1]
             print('\nDealer resolveu comprar: ')
             print('Dealer revela suas cartas: ')
             for cartas in pc:
-                print(f'[{cartas[0]}]',end=' ')
+                print(f'[{cartas}]',end=' ')
             print(f'Total: {valor_pc}\n', end=' ')
             if valor_pc > 21:
                 print('O Dealer ESTOROU! Jogador vencedor') 
@@ -110,8 +131,7 @@ while True:
                 print('Empate')
         
             #bug de jogador vencer e empatar ao msm tempo
-
-
+    
 
         if escolha_pc == 2:
             print('\nO Dealer resolveu parar!')
@@ -156,7 +176,7 @@ while True:
                 print(f'\nO Jogador Venceu!\n\nJogador {valor_jogador} X {valor_pc} Dealer\n')
             else:
                 print(f'\nEMPATE!!\n\nJogador {valor_jogador} X {valor_pc} Dealer\n')
-            break
+            break'''
     
     
    
