@@ -2,7 +2,7 @@ from os import system
 
 system('cls')
 
-'''print('='*30)
+print('='*30)
 print(f'{'Banco CEV':^30}')
 print('='*30)
 
@@ -27,7 +27,7 @@ for notas, c in zip(cedula, cont): #Para percorrer duas listas ao mesmo tempo zi
     if c > 0:
         print(f'Total de {c} cédulas de R${notas}') 
 print('==' * 20)
-print('Volte Sempre! Ao banco CEV')'''
+print('Volte Sempre! Ao banco CEV')
     
 
 

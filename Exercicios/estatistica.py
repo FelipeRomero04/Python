@@ -8,13 +8,11 @@ print('--' * 20)
 
 total = mil = 0
 barato = ''
-
 carrinho = []
 
 while True:
 
     produto = str(input('Nome do produto: '))
-    #fazer um dicionario de produtos
     
     while True:
         try:
