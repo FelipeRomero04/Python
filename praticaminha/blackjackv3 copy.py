@@ -24,7 +24,7 @@ jogador = []
 pc = []
 
 while True:
-    while True:
+    while len(jogador) != 2 and len(pc) != 2:
         carta = random.choice(baralho)
         pc.append({
             'naipe': carta[0],
@@ -60,6 +60,8 @@ while True:
         print(f'Sorte sua! A carta escondida era um: [{pc[1]['naipe']}]\nTotal: {valor_pc}\nO Dealer ESTOROU!')
         break
 
+    escolha = int(input('Escolha: (1)Pedir carta | (2) Parar\n> '))
+
     escolha_pc = random.randint(1,2)
     
     if escolha_pc == 1 and valor_pc > 16:
@@ -90,12 +92,16 @@ while True:
 
 
     if escolha == 1:
+        newcard_jg = comprar_cartasjg()  #passando o retorno da funcão para reutilizar o valor
+        print(f'Voce comprou: [{newcard_jg[0]}]')
         while True:
-            newcard_jg = comprar_cartasjg()  #passando o retorno da funcão para reutilizar o valor
-            print(f'Voce comprou: [{newcard_jg[0]}]')
-            escolha = int(input)
-
-
+            try:
+                opcao = int(input('(1)Pedir mais uma carta | (2)Parar: '))
+                if opcao == 2:
+                    break
+                print('Valor Incorreto. Tente Novamente!')
+            except ValueError:
+                print('Entrada Inválida.')
 
         valor_jogador += newcard_jg[1]
         print('Suas cartas: ')
