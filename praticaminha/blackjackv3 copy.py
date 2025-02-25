@@ -72,14 +72,7 @@ while True:
     if valor_pc < possibilidade:
         escolha_pc = 1
 
-    def comprar_cartasjg():
-        carta = random.choice(baralho)
-        jogador.append({
-            'naipe': carta[0],
-            'valor': carta[1]
-        })
-        baralho.remove(carta)
-        return carta
+     
     
     def comprar_cartaspc():
         carta = random.choice(baralho)
@@ -88,22 +81,37 @@ while True:
             'valor': carta[1]
         })
         baralho.remove(carta)
-        return carta #permanecer o valor fora da função
-
+        return carta 
+    
+    def comprar_cartasjg():
+            carta = random.choice(baralho)
+            jogador.append({
+                'naipe': carta[0],
+                'valor': carta[1]
+            })
+            baralho.remove(carta)
+            return carta #passando o retorno da funcão para reutilizar o valor
+    
+    #permanecer o valor fora da função
 
     if escolha == 1:
-        newcard_jg = comprar_cartasjg()  #passando o retorno da funcão para reutilizar o valor
+        newcard_jg = comprar_cartasjg()
         print(f'Voce comprou: [{newcard_jg[0]}]')
         while True:
             try:
                 opcao = int(input('(1)Pedir mais uma carta | (2)Parar: '))
+                if opcao == 1:
+                    newcard_jg = comprar_cartasjg()
+                    print(f'Você comprou: [{newcard_jg[0]}]')
                 if opcao == 2:
+                    valor_jogador += newcard_jg[1]
                     break
                 print('Valor Incorreto. Tente Novamente!')
+
             except ValueError:
                 print('Entrada Inválida.')
 
-        valor_jogador += newcard_jg[1]
+        
         print('Suas cartas: ')
         for cartas in jogador:
             print(f'[{cartas['naipe']}]',end=' ') #Mostra todas cartas dentro da lista(somente o naipe)
@@ -171,9 +179,10 @@ while True:
             
         if escolha_pc == 2: #dealer para
             print('Dealer resolveu parar!')
-            for jc, cc in zip(jogador, pc):
-                print(f'Dealer revela suas cartas: [{cc['naipe']}], Total: {valor_pc}')
-                print(f'Suas cartas: [{jc['naipe']}], Total: {valor_jogador}')
+            print('Dealer revela suas cartas: ', end='')
+            for c in pc:
+                print(f'[{c['naipe']}]')
+                
             if valor_pc > valor_jogador:
                 print(f'\nO Dealer Venceu!\n\nDealer {valor_pc} X {valor_jogador} Jogador\n')
             elif valor_pc < valor_jogador:
