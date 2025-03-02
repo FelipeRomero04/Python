@@ -22,4 +22,4 @@ except ValueError:
 print(f'Os valores pares digitados foram {cont}')
 #forma comprimida
 #print(f'Os valores pares digitados foram {sum(1 for d in dados if d % 2 == 0)}')
-#some 1, para cada d em dados se d for resto 0(par)
+#some 1, para cada d em dados se d for resto 0(par) 
