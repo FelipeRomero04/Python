@@ -30,11 +30,16 @@ cont = 0
 
 #OUUUU(ABAIXO)      
 
-for t in range(len(times_brasileirao_2024)):
-    if times_brasileirao_2024[t] == time:
-        print(f'O {time} está na {t + 1}ª posição')
+# for t in range(len(times_brasileirao_2024)):
+#     if times_brasileirao_2024[t] == time:
+#         print(f'O {time} está na {t + 1}ª posição')
+
+#OUUU
 
 
+for pos, t in enumerate(times_brasileirao_2024):
+    if t == time:
+        print(f'O {t} está na posição {pos + 1}ª')
 
 
 
