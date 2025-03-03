@@ -197,3 +197,7 @@ while True:
             else:
                 print(f'\nEMPATE!!\n\JOGADOR {valor_jogador} X {valor_pc} DEALER\n')
             break
+
+
+
+        #O ás pode valer tanto 1 quanto 11, caso o jogador istore com 11, a carta passa a valer 1, podendo pedir mais uma carta

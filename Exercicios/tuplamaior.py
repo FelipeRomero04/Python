@@ -3,7 +3,11 @@ import random
 
 system('cls')
 
-sorte = tuple(random.randint(1,11) for c in range(5))
+#for range faz com que um numero aleatorio seja gerado 5 vezes
+
+#sorte = tuple(random.randint(1,11) for c in range(5))
+#metodo com compreensao de gerador acima
+
 sorte = tuple(random.sample(range(11), 5))
 #retorna uma uma tupla com 5 elementos de 0 a 10
 print(f'{' '.join(str(r) for r in sorte)}')
