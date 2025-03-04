@@ -6,29 +6,34 @@ lista = (
 print('--' * 20)
 print(f'{'LISTAGEM DE PREÇOS':^38}')
 print('--' * 20)
-'''
+
+#Os outros metodos são mais legiveis
+
 for p, v in zip(range(0,len(lista), 2), range(1,len(lista), 2)):
    print(f'{lista[p]:.<25} R${lista[v]:.2f}')
-print('--' * 20)'''
+print('--' * 20)
 
 #SEMPRE QUE TIVER UMA COLECÃO DE ELEMENTOS COM VALORES INTERCALADOS, USE A ESTRATEIA DO PAR OU IMPAR / TIPAGEM / RANGE DE 2 EM 2.
-
-#Ler e entender o codigo do guanabara e o dos comentarios. reproduza-os tambem
 
 #Implementar a opcao de voce mesmo colar mais itens
 
 #Metodo guanabara
 
-for p in range(len(lista)):
+'''for p in range(len(lista)):
    if p % 2 == 0:
       print(f'{lista[p]:.<25}',end=' ')
    else:
-      print(f'R${lista[p]}')
+      print(f'R${lista[p]}')'''
 
 #Usando tipagem
 
-for p in range(len(lista)):
-   if lista[p] == str(lista[p]):
-      print(f'{lista[p]:.<25}',end=' ')
+'''for p in lista:
+   if type(p) is str:
+      print(f'{p:.<25}', end=' ')
    else:
-      print(f'R${lista[p]}')
+      print(f'R${p}')'''
+
+#Em 2 linhas
+
+'''for i in range(0, len(lista), 2):
+   print(f'{lista[i]:.<25} R${lista[i + 1]}')'''

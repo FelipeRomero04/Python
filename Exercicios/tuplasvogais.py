@@ -15,6 +15,7 @@ for p in palavras:
         if v in ('A','E','I','O','U'):
             print(v, end=' ')
     print()'''
+   
 
 
 #FORMA INTERESSANTE DE ACESSAR OS CARACTERES DE UMA LISTA(ABAIXO)
