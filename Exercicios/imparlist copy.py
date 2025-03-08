@@ -30,19 +30,21 @@ print(f'A lista de imapares é {impar}')
 '''
 
 lista = []
+par = []
+impar = []
 
 def insirir_valor():
-    
-    
+    try:
+        n = int(input('Digite um valor: '))
+        (par if n % 2 == 0 else impar).append(n)
+    except:
+        raise ValueError('ERRO')
 
 
 
 while True:
-    try:
-        lista.append(int(input('Digite um valor: ')))
-    except ValueError:
-        print('Valor incorreto...')
-        continue
+    
+    insirir_valor()
 
     while True:
         opcao = input('Deseja continuar[S/N]: ').upper().strip()
@@ -51,15 +53,6 @@ while True:
     
     if opcao in ('NAO', 'NÃO', 'N'):
         break
-
-par = []
-impar = []
-
-for v in lista:
-        if v % 2 == 0:
-            par.append(v)
-        else:
-            impar.append(v)
 
 print(impar)
 print(par)
