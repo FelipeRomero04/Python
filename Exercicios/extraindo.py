@@ -1,5 +1,4 @@
 lista = []
-cont = 0
 
 while True:
     while True:
@@ -9,8 +8,6 @@ while True:
             break
         except ValueError:
             print('Entrada incorreta. Tente Novamente!')
-
-    cont += 1
    
     while True:
         opcao = str(input('Deseja continuar[S/N]: ')).upper().strip()
@@ -21,7 +18,7 @@ while True:
 
 print('=-' * 25)
 
-print(f'Você digitou {cont} elementos.')
+print(f'Você digitou {len(lista)} elementos.')
 print(f'Os valores em ordem decrescente são {sorted(lista, reverse= True)}')
 if 5 in lista:
     print(f'O valor 5 está na posição {lista.index(5)} da sua lista')
