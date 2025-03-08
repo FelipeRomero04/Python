@@ -30,13 +30,7 @@ print(f'A lista de imapares é {impar}')
 '''
 
 lista = []
-
-def insirir_valor():
     
-    
-
-
-
 while True:
     try:
         lista.append(int(input('Digite um valor: ')))
