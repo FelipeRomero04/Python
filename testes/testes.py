@@ -1,11 +1,6 @@
-lista = []
-impar = []
-par = []
+lista = [['Maria', 32], ['José, 21'], ['Tonhão', 12]]
 
-for i in range(5):
-    n = int(input('Digite um valor: '))
-    (lista, par if n % 2 == 0 else lista, impar).append(n) 
+lista.remove()
 
 print(lista)
-print(par)
-print(impar)
+
