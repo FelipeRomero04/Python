@@ -38,6 +38,12 @@ while True:
     if opcao in ('N', 'NAO', 'NÃO'):
         break
 
-for n, p in usuarios:
-    print(n)
-    print(p)
+print('=-' * 30)
+print(f'Ao todo, você cadastrou {len(usuarios)} pessoas.')
+print(f'O maior peso foi {maior}Kg. Peso de {' '.join(f'[{p[0]}]' for p in usuarios if p[1] == maior)}')
+print(f'O menor peso foi {menor}Kg. Peso de {' '.join(f'[{n}]' for n, p in usuarios if p == menor)}') #For com 2 var
+
+'''SEMPRE FIQUE ATENTO ONDE É POSSIVEL SIMPLIFICAR O CODIGO.
+
+ja que declarar o maior e o menor é necessario apenas um loop que atualize os valores a cada iteração. Tendo um loop(while) que ja gera valores, manteria o codigo mais limpo, atualizando os valores(maior,menor) a medida que os valores são gerados.
+ '''
