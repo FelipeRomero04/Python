@@ -3,22 +3,40 @@ from os import system
 
 system('cls')
 
-'''matriz = []
+matriz = []
+par = 0
+somcol = 0
+
 
 for l in range(3):
     temp = []
     for c in range(3):
         n = int(input(f'Digite um valor para [{l}, {c}]: '))
+        if n % 2 == 0:
+            par += n
         temp.append(n)
     matriz.append(temp)
+    print(l)
+    # if l == 0:
+    #     maior = matriz[0]
 
+    if c == 2:
+        somcol += n
 for m in matriz:
     sleep(0.5)
     print(f'{m}')
-'''
+
+
+
+
+
+print(par)
+print(somcol)
+
+
 #Dois metodos feitos por mim
 
-matriz = []
+'''matriz = []
 par = 0
 
 for l in range(3):
@@ -49,7 +67,7 @@ print('=-' * 30)
 print(f'A soma dos valores pares é {par}.')
 print(f'A soma dos valores da terceira coluna é {somcol}')
 print(f'O maior valor da segunda linha é {maior}')
-
+'''
 
 '''ANOTE SOBRE OPERADOR TERNARIO, E FAÇA O MESMO COM A MATRIZ ACIMA'''
 
