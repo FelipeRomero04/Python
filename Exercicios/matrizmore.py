@@ -4,34 +4,38 @@ from os import system
 system('cls')
 
 matriz = []
-par = 0
-somcol = 0
+par = somcol = 0
 
 
-for l in range(3):
-    temp = []
-    for c in range(3):
+for l in range(3): 
+    temp = [] #reiniciando temp, para fazer uma lista composta
+    for c in range(3): 
         n = int(input(f'Digite um valor para [{l}, {c}]: '))
-        if n % 2 == 0:
+        if n % 2 == 0: 
             par += n
         temp.append(n)
     matriz.append(temp)
-    print(l)
-    # if l == 0:
-    #     maior = matriz[0]
-
-    if c == 2:
+    
+    if c == 2:    #soma da 3ª coluna
         somcol += n
+
+    if l == 0:
+        maior = matriz[0]
+    else:
+        if l == 1:
+            maior = max(matriz[l])
+
+print('=-' * 30)
+
 for m in matriz:
     sleep(0.5)
     print(f'{m}')
 
+print('=-' * 30)
 
-
-
-
-print(par)
-print(somcol)
+print(f'A soma dos valores pares é {par}.')
+print(f'A soma dos valores da terceira linha é {somcol}.')
+print(f'O maior valor da segunda linha é {maior}.')
 
 
 #Dois metodos feitos por mim
