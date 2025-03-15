@@ -1,4 +1,5 @@
-lista = list(range(1, 61))
+lista = [['Gustavo', [7, 8], 8], ['Felipe', [8, 9], 9]]
 
-for p in lista:
-    print(lista[:6])
+print(lista)
+
+
