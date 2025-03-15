@@ -1,5 +1,5 @@
-lista = [['Gustavo', [7, 8], 8], ['Felipe', [8, 9], 9]]
+lista = [['Gustavo', [7, 8], 8]]
 
-print(lista)
+print(lista[0][1])
 
 
