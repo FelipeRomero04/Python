@@ -4,14 +4,18 @@ from time import sleep
 jogadores = [{'nome': 'jogador1'}, {'nome': 'Jogador2'}, {'nome': 'Jogador3'}, {'nome': 'Jogador4'}]
 
 
-for j in jogadores:
+
+for i, j in enumerate('jogadores'):
+    print('jogadores' + str(i))
+
+'''for j in jogadores:
     j['valor'] = randint(1, 7)
     print(f'O {j['nome']} tirou {j['valor']}')
         
 for j in jogadores:
     for v in j.values():
         print(v[0])
-'''pontos = []  
+pontos = []  
 
 print('Ranking')
 for j in jogadores:
@@ -21,6 +25,7 @@ for j in jogadores:
 
 for p in range(1, 4):
     print(f'{p}ª ')'''
+
 
 
 
