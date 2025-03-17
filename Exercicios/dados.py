@@ -1,44 +1,30 @@
 from random import randint
 from time import sleep
+from os import system
+from operator import itemgetter
 
-jogadores = [{'nome': 'jogador1'}, {'nome': 'Jogador2'}, {'nome': 'Jogador3'}, {'nome': 'Jogador4'}]
+system('cls')
 
+jogo = {}
 
+for c in range(1, 5):
+    jogo[f'jogador{c}'] = randint(1,6)
 
-for i, j in enumerate('jogadores'):
-    print('jogadores' + str(i))
+print('== VALORES SORTEADOS ==')
+for k, v in jogo.items():
+    print(f'O {k} tirou {v} no dado')
+    sleep(1)
 
-'''for j in jogadores:
-    j['valor'] = randint(1, 7)
-    print(f'O {j['nome']} tirou {j['valor']}')
-        
-for j in jogadores:
-    for v in j.values():
-        print(v[0])
-pontos = []  
+print('=-' * 30)
 
-print('Ranking')
-for j in jogadores:
-    j.pop('nome')
-    for v in j.values():
-        pontos.append(v)
+ranking = dict(sorted(jogo.items(), key= lambda item: item[1], reverse=True))
+#lambda diz pro sorted como deve ordenar, baseado no jogo.items(), pegando o valor [1]
 
-for p in range(1, 4):
-    print(f'{p}ª ')'''
+# ranking = dict(sorted(jogo.items(), key= itemgetter(1), reverse=True))
+
+print(f'{'<<RANKING >>':^33}')
 
 
-
-
-
-
-
-
-#pra cada dicionario vou adicionar um valor randint
-
-#For pra percorrer cada dicionario
-
-#Primeira parte key and values(aninhado com de cima)
-
-#Para organizar o dic provavelmente vou ter q usar for values
-
-    
+for posicao, (k, v) in enumerate(ranking.items(), start=1):
+    print(f' {posicao}º Lugar: {k} com {v} pontos.')
+    sleep(1)
