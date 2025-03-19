@@ -1,4 +1,7 @@
 from time import localtime
+from os import system
+
+system('cls')
 
 ano_atual = localtime().tm_year
 
@@ -9,8 +12,8 @@ if any(l.isdigit() for l in dados['nome']):
 
 try:
     nasc = int(input('Data de nascimento: '))
-    dados['ctps'] = int(input('Carteira de Trabalho: '))
-    if nasc < 0 or dados['ctps'] < 0:
+    dados['ctps'] = input('Carteira de Trabalho[0 se não tem]: ')
+    if nasc < 0 or int(dados['ctps']) < 0 or len(dados['ctps']) < 11:
         print('Dados inconsistentes. Tente Novamente!')
         exit()
 
@@ -20,12 +23,7 @@ except ValueError:
 
 dados['idade'] = ano_atual - nasc
 
-if dados['ctps'] == 0:
-    print('=-' * 30)
-    for k, v in dados.items():
-        print(f'  - {k} tem o valor {v}')
-
-else:
+if dados['ctps'] != 0:
     while True:
         try:
             dados['contratacao'] = int(input('Ano de contratação: '))
@@ -36,7 +34,7 @@ else:
                 print('Idade e Ano de contratação incorrespondentes.')
                 exit()
 
-            dados['salario'] = float(input('Salário: '))
+            dados['salario'] = float(input('Salário: R$'))
 
             if dados['salario'] < 0:
                 print('=-' * 30)
@@ -50,10 +48,13 @@ else:
 
     dados['aposentadoria'] = dados['idade'] + ( 35 - (ano_atual - dados['contratacao']))
 
-    print('=-' * 30)
+print('=-' * 30)
 
-    for k, v in dados.items():
-        print(f'  - {k} tem o valor {v}')
+for k, v in dados.items():
+    if k == 'salario':
+        print(f'  - {k} tem o valor R${v}') 
+        continue
+    print(f'  - {k} tem o valor {v}')
 
 
 
