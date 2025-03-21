@@ -25,6 +25,8 @@ print('=-' * 30)
 print('cod nome  gols total')
 
 for d in list_dados:
+    for i ,v in enumerate(d.values()):
+        print(f'{i}, {v} ', end='')
     
-#Fazer um for aninhado .values
+#Fazer um for aninhado .values 
   
