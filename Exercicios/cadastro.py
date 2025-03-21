@@ -70,3 +70,6 @@ for d in lista_dados: #VOLTE AKI
     
 if not acima_media:
     print('  - Todas as mulheres estão na média.')
+
+
+#Anotar sobre FLAG
