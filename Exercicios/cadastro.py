@@ -41,27 +41,28 @@ media = sum(idades) / len(idades)
 
 print(f'A) Ao todo temos {len(lista_dados)} pessoas cadastradas')
 print(f'B) A média das idades é de {media:.2f} anos')
-print(f'C) As mulheres cadastradas foram: ',end='')
+print(f'C) As mulheres cadastradas foram: ')
 
-f_cadastradas = False
+primeiro = True
 
 for i, v in enumerate(lista_dados, start=1):
-
     if v['sexo'] == 'F':
-        f_cadastradas = True
-        if i == len(lista_dados):
-            print(v['nome'], end=' ')
-        else:
-            print(v['nome'], end=', ')
+        if not primeiro:
+            print(', ', end='')
+        print(v['nome'], end='')
+        primeiro = False
 
-if not f_cadastradas:
-    print('\n  - Nenhuma mulher foi cadastrada.')
+
+
+
+
+
 
 acima_media = False
 
-print(f'D)Lista das Mulheres que estão acima da média: ')
+print(f'\nD)Lista das Mulheres que estão acima da média: ')
 
-for d in lista_dados: #VOLTE AKI
+for d in lista_dados: 
     if d['idade'] > media and d['sexo'] == 'F':   #loop externo percorre um dict por vez
         acima_media = True
         for k, v in d.items():
