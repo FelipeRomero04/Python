@@ -58,6 +58,5 @@
 
 # print(f'O titulo é {titulo}, o autor se chama {autor}, foi lançado no ano de {ano}')
 
-lista = [{'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}]
+lista = [{'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 28, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 48, 'cidade': 'Tr'}]
 
-print(lista[0]['idade'])

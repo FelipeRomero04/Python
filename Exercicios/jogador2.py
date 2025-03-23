@@ -20,8 +20,6 @@ while True:
     if opcao in ('NAO', 'NÃO', 'N'):
         break
 
-print(list_dados[1]['nome'])
-
 print('=-' * 30)
 print(f'{'cod':<5} {'nome':<12}{'gols'}{'total':>15}')
 print('==' * 30)
@@ -32,10 +30,14 @@ for i, d in enumerate(list_dados):
 print('==' * 30)
 
 while True:
-    jogador = input('Mostrar dados de qual jogador[exit p/sair]?').lower().strip()
-    if jogador == 'exit':
+    jogador = input('Mostrar dados de qual jogador[ENTER p/sair]? ').strip()
+    if not jogador:
         break
     jogador = int(jogador)
-    print(f'Levantamento do jogador {list_dados[jogador]['nome']}')
+    print(f' -- Levantamento do jogador {list_dados[jogador]['nome']}: ')
+    performance = list_dados[jogador]['gol']
     for i in range(1, len(list_dados[jogador]['gol']) + 1):
-        print(f'No jogo {i} fez {list_dados[jogador]['gol'][:]}')
+        print(f'    No jogo {i} fez {performance[i - 1]} ')
+    print('==' * 30)
+
+#Usar o len(list_dados['gol'] pra fazer a contagem da partida)

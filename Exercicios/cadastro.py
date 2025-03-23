@@ -1,5 +1,5 @@
 lista_dados = []
-idades = []
+som_idades = 0
 
 while True:
     dados = {'nome': input('Nome: ')} #dicionario reiniciado a cada iteração
@@ -24,53 +24,45 @@ while True:
             print('Somente números devem preencher o campo acima!')
 
 
-    idades.append(dados['idade'])
+    som_idades += dados['idade']
     lista_dados.append(dados)
     
     while True:
-        opcao = input('Quer continuar[S/N]? ').upper().strip()
-        if opcao in ('S', 'SIM', 'N', 'NAO', 'NÃO'):
+        opcao = input('Quer continuar?\nPress[S] ou [ENTER P/SAIR]: ').upper().strip()
+        if opcao in ('S', 'SIM') or not opcao:
             break
         print('ERRO! Responda apenas S ou N.')
-    if opcao in ('N', 'NAO', 'NÃO'):
+    if not opcao:
         break
 
 print('=-' * 30)
 
-media = sum(idades) / len(idades)
+media = som_idades / len(lista_dados)
 
 print(f'A) Ao todo temos {len(lista_dados)} pessoas cadastradas')
 print(f'B) A média das idades é de {media:.2f} anos')
-print(f'C) As mulheres cadastradas foram: ')
+print(f'C) As mulheres cadastradas foram: ', end='')
 
-primeiro = True
+list_mulher = ' / '.join(v['nome'] for v in lista_dados if v['sexo'] == 'F')
 
-for i, v in enumerate(lista_dados, start=1):
-    if v['sexo'] == 'F':
-        if not primeiro:
-            print(', ', end='')
-        print(v['nome'], end='')
-        primeiro = False
+if list_mulher:
+    print(list_mulher)
+else:
+    print(' - Nenhuma mulher foi cadastrada.')
 
-
-
-
-
-
-
+print(f'D)Lista das Mulheres que estão acima da média: ')
 acima_media = False
-
-print(f'\nD)Lista das Mulheres que estão acima da média: ')
 
 for d in lista_dados: 
     if d['idade'] > media and d['sexo'] == 'F':   #loop externo percorre um dict por vez
         acima_media = True
         for k, v in d.items():
-            print(f'{k} = {v}; ',end='') #loop interno executado completamente
+            print(f'    {k} = {v}; ',end='') #loop interno executado completamente
         print() #linha d'baixo
     
 if not acima_media:
     print('  - Todas as mulheres estão na média.')
 
+print('<< ENCERRADO >>')
 
 #Anotar sobre FLAG
