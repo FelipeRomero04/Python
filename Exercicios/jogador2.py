@@ -20,13 +20,13 @@ while True:
 
     for i in range(1, num_part + 1):
         while True:
-            list_gols.append(int(input(f'Quantos gols na {i}ª partida? ')))
             try:
-                if list_gols[i-1] < 0:
-                    print('ERRO')
+                list_gols.append(int(input(f'Quantos gols na {i}ª partida? ')))
+                if list_gols[i-1] > 0:
                     break
+                print('Número inválido. Tente novamente!')
             except ValueError:
-                print('Erro')    
+                print('Somente números são permitidos nesse campo.')    
 
 
     dados['gol'] = list_gols    
@@ -56,10 +56,14 @@ while True:
     if not jogador:
         break
     jogador = int(jogador)
+    if jogador >= len(list_dados):
+        
+        print('Erro! Jogador inexistente.')
+        continue
     print(f' -- Levantamento do jogador {list_dados[jogador]['nome']}: ')
-    performance = list_dados[jogador]['gol'] #Tentar deixar mais limpo
-    for i in range(1, len(performance) + 1):
-        print(f'    No jogo {i} fez {performance[i - 1]} gols. ')
+    for i, g in enumerate(list_dados[jogador]['gol'], start=1):
+        print(f'   No jogo {i}, fez {g} gols. ')
     print('==' * 30)
+    
 
 #Usar o len(list_dados['gol'] pra fazer a contagem da partida)
