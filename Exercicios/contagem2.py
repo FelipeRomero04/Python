@@ -2,28 +2,36 @@ from time import sleep
 
 def cont(inc, fim , pas):
     
-    if inc < fim:
-        print('=-' * 30)
-        print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
-        for i in range(inc, fim + 1, pas):
-            print(f'{i} ', end='', flush=True)
-            sleep(0.3)
+    # if inc < fim:
+    #     print('=-' * 30)
+    #     print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
+    #     for i in range(inc, fim + 1, pas):
+    #         print(f'{i} ', end='', flush=True)
+    #         sleep(0.3)
 
-    else:
-        print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
-        for i in range(inc, fim, -pas):
-            print(f'{i} ', end='', flush= True) 
-            sleep(0.3)
-    print('FIM!')
+    # else:
+    #     print('\n=-' * 30)
+    #     print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
+    #     for i in range(inc, fim, -pas):
+    #         print(f'{i} ', end='', flush= True) 
+    #         sleep(0.3)
+    #     print('\n=-' * 30)
+
     
-
     print('=-' * 30)
+    print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
+    if inc > fim and pas > 0:
+        pas = -abs(pas)
+        fim -= 1   
+    else:
+        fim += 1 
+    for i in range(inc, fim, pas):
+        print(f'{i} ', end='', flush=True)
+        sleep(0,3)
 
 
 
 
-cont(1, 10, 1)
-cont(10, 0, 2)
 
 
 '''from time import sleep
