@@ -61,8 +61,17 @@
 # lista = [{'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 28, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 48, 'cidade': 'Tr'}]
 
 
-lista = {'nome': 'Felipe'}
+# lista = {'nome': 'Felipe'}
 
-for n in lista.values():
-    for l in n:
-        print(l)
+# for n in lista.values():
+#     for l in n:
+#         print(l)
+
+
+p = 5
+p = -abs(p)
+
+
+print(p)
+
+

@@ -1,9 +1,10 @@
 def escreva(txt):
-    print(f'{'~' * len(txt):^2}')
-    print(f'{txt:5}')
-    print(f'{'~' * len(txt)}')
+    tam = len(txt) + 4
+    print(f'{'~' * tam}')
+    print(f'  {txt}')
+    print(f'{'~' * tam}')
 
 
 
 
-escreva('cvc')
+escreva(f'Cu doce')
