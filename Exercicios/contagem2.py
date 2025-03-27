@@ -1,38 +1,34 @@
 from time import sleep
 
 def cont(inc, fim , pas):
-    
-    # if inc < fim:
-    #     print('=-' * 30)
-    #     print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
-    #     for i in range(inc, fim + 1, pas):
-    #         print(f'{i} ', end='', flush=True)
-    #         sleep(0.3)
-
-    # else:
-    #     print('\n=-' * 30)
-    #     print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
-    #     for i in range(inc, fim, -pas):
-    #         print(f'{i} ', end='', flush= True) 
-    #         sleep(0.3)
-    #     print('\n=-' * 30)
-
-    
     print('=-' * 30)
-    print(f'Contagem de {inc} até {fim} de {pas} em {pas}.')
-    if inc > fim and pas > 0:
-        pas = -abs(pas)
-        fim -= 1   
-    else:
-        fim += 1 
-    for i in range(inc, fim, pas):
-        print(f'{i} ', end='', flush=True)
-        sleep(0,3)
+    print(f'Contagem de {abs(inc)} até {abs(fim)} de {abs(pas)} em {abs(pas)}.')
+    if inc < fim:
+        if pas < 0:
+            pas = abs(pas)
+        for i in range(inc, fim + 1, pas):
+            print(f'{i} ', end='', flush=True)  
+            sleep(0.3)
+        print('FIM')
+        
 
+    if inc > fim:
+        if pas < 0:
+            pas = -abs(pas)
+        for i in range(inc, fim - 1, pas):
+            print(f'{i} ', end='', flush= True) 
+            sleep(0.3)
+        print('FIM')
 
+cont(1, 10, 1)
+cont(10, 0, 2)
+l = int(input('Incio: '))
+f = int(input('Fim: '))
+p = int(input('Passo: '))
+if p == 0:
+    p = 1
 
-
-
+cont(l, f, p)
 
 '''from time import sleep
 from os import system

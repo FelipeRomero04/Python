@@ -68,10 +68,11 @@
 #         print(l)
 
 
-p = 5
-p = -abs(p)
+p = -5
+c = -3
+u = -4
 
+print(p, c, u)
 
-print(p)
 
 
