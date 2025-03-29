@@ -14,7 +14,7 @@ def sorteio():
     print('PRONTO!')
 
 def somarpar(lista):
-    soma_par = sum(list(filter(lambda x: x % 2 == 0, lista)))
+    soma_par = sum(filter(lambda x: x % 2 == 0, lista))
     # soma = 0
     # for n in list:
     #     if n % 2 == 1:
