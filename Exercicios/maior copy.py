@@ -10,7 +10,7 @@ def maior(*num):
         print(f'{n} ', end='', flush=True)
         sleep(0.5)
     
-    print(f'Foram informados {len(num) if num != (0,) else 0} {'valores' if len(num) != 1 or num == (0,) else 'valores'} ao todo.')
+    print(f'Foram informados {len(num) if num != (0,) else 0} {'valores' if len(num) != 1 or num == (0,) else 'valor'} ao todo.')
     print(f'O maior número informado foi {max(num)}.') 
 
     #ACIMA FUNCIONAL SO ARRUMAR O IF COM VALOR
@@ -18,11 +18,11 @@ def maior(*num):
     # print(f'Foram informados {len(num)} {'valor' if len(num) == 1 else 'valores'} ao todo.')
     # print(f'O maior número informado foi {max(num)}.') #ARRUMAR UMA FORMA DE TIRAR
     #Por que o zero n é imprimido no print?
-maior(0)
+maior(2, 9, 4, 5, 7, 1)
 maior(4, 7, 0)
 maior(0, 2)
 maior(6)
-maior(2, 9, 4, 5, 7, 1)
+maior(0)
 
 
 # def maior(*num):
