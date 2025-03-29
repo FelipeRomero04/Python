@@ -68,11 +68,13 @@
 #         print(l)
 
 
-p = -5
-c = -3
-u = -4
+p = (0,)
 
-print(p, c, u)
+for v in p:
+    print(p)
+
+
+print(p)
 
 
 
