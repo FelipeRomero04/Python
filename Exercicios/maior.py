@@ -1,6 +1,8 @@
 from time import sleep
 
 def maior(*num):
+    if not num:
+        num = (0,)
     print('-=' * 30)
     print('Analisando os valores passados: ')
     
@@ -15,7 +17,7 @@ maior(2, 9, 4, 5, 7, 1)
 maior(4, 7, 0)
 maior(0, 2)
 maior(6)
-maior(0)
+maior()
 
 
 # def maior(*num):

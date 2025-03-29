@@ -3,26 +3,24 @@ from time import sleep
 def maior(*num):
     print('-=' * 30)
     print('Analisando os valores passados: ')
-   
-    for n in num:
-        if num == (0,):
-            break
-        print(f'{n} ', end='', flush=True)
-        sleep(0.5)
     
-    print(f'Foram informados {len(num) if num != (0,) else 0} {'valores' if len(num) != 1 or num == (0,) else 'valor'} ao todo.')
-    print(f'O maior número informado foi {max(num)}.') 
+    if num:
+        for n in num:
+            print(f'{n} ', end='', flush=True)
+            sleep(0.5)
 
-    #ACIMA FUNCIONAL SO ARRUMAR O IF COM VALOR
-    
-    # print(f'Foram informados {len(num)} {'valor' if len(num) == 1 else 'valores'} ao todo.')
-    # print(f'O maior número informado foi {max(num)}.') #ARRUMAR UMA FORMA DE TIRAR
-    #Por que o zero n é imprimido no print?
-maior(2, 9, 4, 5, 7, 1)
+        print(f'Foram informados {len(num)} {'valores' if len(num) != 1 else 'valor'} ao todo.')
+
+    else:
+        print('Nenhum valor foi encontrador.')
+    print(f'O maior número informado foi {max(num) if num else 0}.')
+
+
+maior(2, 9, 4, 5, 7, 1) 
 maior(4, 7, 0)
 maior(0, 2)
 maior(6)
-maior(0)
+maior()
 
 
 # def maior(*num):
