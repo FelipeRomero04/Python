@@ -10,7 +10,7 @@ def maior(*num):
         print(f'{n} ', end='', flush=True)
         sleep(0.5)
     
-    print(f'Foram informados {len(num) if num != (0,) else 0} {'valor' if len(num) == 1 else 'valores'} ao todo.')
+    print(f'Foram informados {len(num) if num != (0,) else 0} {'valores' if len(num) != 1 or num == (0,) else 'valores'} ao todo.')
     print(f'O maior número informado foi {max(num)}.') 
 
     #ACIMA FUNCIONAL SO ARRUMAR O IF COM VALOR
