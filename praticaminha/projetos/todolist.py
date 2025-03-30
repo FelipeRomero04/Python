@@ -6,8 +6,6 @@ def ad_tarefa(lista):
     tasks.append(name_task)
     return name_task
 
-
-
 def task_end():
     
     show_tasks(tasks)
