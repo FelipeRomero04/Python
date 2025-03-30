@@ -1,7 +1,6 @@
 from random import randint
 from time import sleep
 
-
 numeros = []
 
 def sorteio():
@@ -17,9 +16,7 @@ def somarpar(lista):
     soma_par = sum(filter(lambda x: x % 2 == 0, lista))
     # soma = 0
     # for n in list:
-    #     if n % 2 == 1:
-    #         continue
-    #     else:
+    #     if n % 2 == 0:
     #         soma += n
     print(f'Somando os valores pares da lista {numeros}, temos {soma_par}.')
 
