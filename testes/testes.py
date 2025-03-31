@@ -68,13 +68,9 @@
 #         print(l)
 
 
-p = (0,)
+lista1 = [1, 3, 5, 2, 6]
+lista2 = [ 3, 4, 5, 2]
 
-for v in p:
-    print(p)
+correto = filter(lambda n: n in lista1, lista2)
 
-
-print(p)
-
-
-
+print(list(correto))

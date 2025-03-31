@@ -1,5 +1,6 @@
 
 tasks = []
+tasks_end = []
 
 while True:
     print('Gerenciador de Tarefas')
@@ -10,13 +11,17 @@ while True:
 4. Remover Tarefas
 ''')
 
-    opcao = input('Digite uma das opções acima[ENTER p/]sair]: ')
-    if not opcao:
-        break
-
-    opcao = int(opcao)
+    while True:
+        try:
+            opcao = int(input('Digite uma das opções acima[ENTER p/]sair]: '))
+            if opcao in (1, 2, 3, 4) or not opcao:
+                break 
+            print('Opção não encontrada.')
+        except ValueError:
+            print('Entrada incorreta')
 
     if opcao == 1:
+
         new_task = input('Adicione uma Tarefa: ')
         if new_task in tasks:
             print('Esta tarefa ja esta na sua lista!')
@@ -24,14 +29,29 @@ while True:
         tasks.append(new_task)
     
     if opcao == 2:
-        task_end = int(input('Digite o número da tarefa     concluída: '))
+        completed = int(input('Digite o número da tarefa concluída: '))
+        tasks_end.append(completed)
+
+    if opcao == 3:
+        print('Mostando a lista: ')
+        for t, e in zip(tasks, tasks_end):
+            if tasks[e] in tasks:
+                print(f'[V] {t}')
+                continue
+            print(f'[ ] {t}')
 
     if opcao == 4:
-        task_remove = input('Digite o número da tarefa: ')
+        task_remove = int(input('Digite o número da tarefa: '))
         tasks.remove(tasks[task_remove])
+        print('Tarefa Removida!')
     
-    if opc
 
 
 
-    print(tasks)
+#for c in task:
+#
+#
+#
+#
+#
+#
