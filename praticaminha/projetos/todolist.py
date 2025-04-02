@@ -12,13 +12,19 @@ def menu():
 
 def add_task():
     print('=-' * 30)
-    new_task = input('Digite uma tarefa: ').strip().capitalize()
-    if any(l for l in new_task if l.isdigit()):
-        print('Não são permitidos números nesse campo.')
-        return
-    if new_task in tasks:
-        print('Tarefa ja incluida!')
-        return
+    print('ENTER P/ VOLTAR AO MENU.')
+    print('=-' * 30)
+    while True:
+        new_task = input('Digite uma tarefa: ').strip().capitalize()
+        if any(l for l in new_task if l.isdigit()):
+            print('Não são permitidos números nesse campo.')
+            continue    
+        if new_task in tasks:
+            print('Tarefa ja incluida!')
+            continue  
+        if not new_task:
+            break
+        
     tasks.append(new_task)
     print('Tarefa adiciona a lista.')
 
@@ -52,7 +58,7 @@ def show_tasks(lista1, lista2):
         print('Sua Lista de Tarefas está vazia!')
     print('~' * 30)
     sleep(2)
-    menu()
+    
 
 def remove_task(lista):
     show_tasks(tasks, num_tasks_end)
@@ -76,13 +82,20 @@ tasks = []
 num_tasks_end = []
 
 
-menu()
+
 
 while True:
     print('=-' * 30)
-    opcao = input('Selecione uma das opções acima: ')
-    opcao = int(opcao)
-    
+    menu()
+    while True:
+        try:
+            opcao = int(input('Selecione uma das opções acima: '))
+            if 0 < opcao < 6:
+                break
+            print('Entrada inválida. Tente novamente.')
+        except ValueError:
+            print('Digite o Nº das opções acima! ')
+
     if opcao == 1:
        add_task() 
     if opcao == 2:
