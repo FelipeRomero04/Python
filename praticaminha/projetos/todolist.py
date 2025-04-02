@@ -1,7 +1,7 @@
 from time import sleep
-# from os import system
+from os import system
 
-# system('cls')
+system('cls')
 
 def menu():
     print('=== Gerenciador de Tarefas ===')
@@ -17,23 +17,19 @@ def add_task():
     print('=-' * 20)
     print('ENTER P/ VOLTAR AO MENU.')
     print('=-' * 20)
-    cont = 0
+    
     while True:
-        cont += 1
-        new_task = input(f'Digite a {cont}ª tarefa: ').strip().capitalize()
+        new_task = input(f'Digite a {len(tasks) + 1}ª tarefa: ').strip().capitalize()
         if not new_task:
             break
         if any(l for l in new_task if l.isdigit()):
             print('Não são permitidos números nesse campo.')
             continue    
         if new_task in tasks:
-            print(f'{'Tarefa' if cont == 1 else 'Tarefas'} {'ja' if cont == 1 else 'foram'} {'incluida!' if cont == 1 else 'incluidas!'}')
+            print(f'Tarefa já incluida à lista.')
             continue  
         tasks.append(new_task)
-        
-        
-   
-    print('Tarefa adiciona a lista.')
+    print('Tarefas adicionadas a lista.')
 
 def end_task(lista): #concluida
     show_tasks(tasks, num_tasks_end)    
@@ -55,8 +51,7 @@ def end_task(lista): #concluida
 def show_tasks(lista1, lista2):
     print('~' * 30)
     print('Mostrando a lista: ')
-    max_len = max(len(lista1), len(lista2))
-    for i in range(max_len):
+    for i in range(len(lista1)):
         if i in lista2:
             print(f'{i}. [v]{lista1[i]}')
             continue
@@ -88,7 +83,6 @@ tasks = []
 num_tasks_end = []
 
 while True:
-    print('=-' * 30)
     menu()
     while True:
         try:
@@ -113,7 +107,5 @@ while True:
             break
         continue
 
-#Tratar ValueError e finalizações(deixa bunitin)
 
-#Ver onde posso chamar o menu novamente
 
