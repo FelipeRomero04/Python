@@ -1,3 +1,5 @@
+from time import sleep
+
 def menu():
     print('=== Gerenciador de Tarefas ===')
     print('''
@@ -11,6 +13,9 @@ def menu():
 def add_task():
     print('=-' * 30)
     new_task = input('Digite uma tarefa: ').strip().capitalize()
+    if any(l for l in new_task if l.isdigit()):
+        print('Não são permitidos números nesse campo.')
+        return
     if new_task in tasks:
         print('Tarefa ja incluida!')
         return
@@ -46,6 +51,7 @@ def show_tasks(lista1, lista2):
     if not lista1:
         print('Sua Lista de Tarefas está vazia!')
     print('~' * 30)
+    sleep(2)
     menu()
 
 def remove_task(lista):
