@@ -27,13 +27,10 @@ def add_task():
             print('Não são permitidos números nesse campo.')
             continue    
         if new_task in tasks:
-            print(f'{'Tarefa' if cont == 1 else 'Tarefas'} {'ja' if cont == 1 else 'foram'} {'incluida!' if cont == 1 else 'incluidas!'}')
+            print(f'Tarefa já incluida à lista.')
             continue  
         tasks.append(new_task)
-        
-        
-   
-    print('Tarefa adiciona a lista.')
+    print('Tarefas adicionadas a lista.')
 
 def end_task(lista): #concluida
     show_tasks(tasks, num_tasks_end)    
@@ -55,8 +52,7 @@ def end_task(lista): #concluida
 def show_tasks(lista1, lista2):
     print('~' * 30)
     print('Mostrando a lista: ')
-    max_len = max(len(lista1), len(lista2))
-    for i in range(max_len):
+    for i in range(len(lista1)):
         if i in lista2:
             print(f'{i}. [v]{lista1[i]}')
             continue
