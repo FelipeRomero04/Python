@@ -1,7 +1,7 @@
 from time import sleep
-# from os import system
+from os import system
 
-# system('cls')
+system('cls')
 
 def menu():
     print('=== Gerenciador de Tarefas ===')
@@ -17,10 +17,9 @@ def add_task():
     print('=-' * 20)
     print('ENTER P/ VOLTAR AO MENU.')
     print('=-' * 20)
-    cont = 0
+    
     while True:
-        cont += 1
-        new_task = input(f'Digite a {cont}ª tarefa: ').strip().capitalize()
+        new_task = input(f'Digite a {len(tasks) + 1}ª tarefa: ').strip().capitalize()
         if not new_task:
             break
         if any(l for l in new_task if l.isdigit()):
@@ -109,7 +108,5 @@ while True:
             break
         continue
 
-#Tratar ValueError e finalizações(deixa bunitin)
 
-#Ver onde posso chamar o menu novamente
 

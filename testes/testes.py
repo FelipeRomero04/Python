@@ -68,9 +68,15 @@
 #         print(l)
 
 
-lista1 = [1, 3, 5, 2, 6]
-lista2 = [ 3, 4, 5, 2]
+# lista1 = [1, 3, 5, 2, 6]
+# lista2 = [ 3, 4, 5, 2]
 
-correto = filter(lambda n: n in lista1, lista2)
+# correto = filter(lambda n: n in lista1, lista2)
 
-print(list(correto))
+# print(list(correto))
+
+
+lista = ["a", "b", "c"]
+dict_lista = {i+1: v for i, v in enumerate(lista)}
+
+print(dict_lista) 
