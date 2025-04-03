@@ -45,13 +45,12 @@ def end_task(lista, lista2): #concluida
     
     completed = input('Nº da tarefa à concluir: ')
     lista2.append(completed)
-    for i, v in enumerate(lista):
-        print(i)
-        print(completed)
-        if i in lista2:
-            lista[i]['status'] = '[V]'
-            continue
-        lista[i]['status'] = '[ ]'       
+    for i, t in enumerate(lista):
+        for k, v in t.items():
+            if k == 'status' and v 
+            if v[0] == 'status' and i in coi          
+            print()
+         
         
         print(v)
     #if completed #for igual ao numero do dict, status = True
@@ -59,8 +58,7 @@ def end_task(lista, lista2): #concluida
 def show_tasks(lista):
     print('~' * 30)
     print('Mostando à lista: ')
-    for v in lista:
-        print()
+    
 
 list_tasks = []
 list_end_tasks = []

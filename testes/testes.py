@@ -91,11 +91,12 @@ dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : '
 #         print(v[1]) #ANOTAR Q QUANDO DICT E PERCORRIDO COM .ITEMS(), OS VALORES SE TORNAM TUPLAS, PODENDO SER MANIPULADAS PELO INDÍCE. (PELO MENOS QND E UMA LISTA DE DIC, TESTA DICT NORMAL)
 
 
-dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : 'tbmnsei' }] 
+# dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : 'tbmnsei' }] 
 
-dict[0]['status'] = 'Sim'
+# dict[0]['status'] = 'Sim'
 
-print(dict)
+# print(dict)
 
-# for i , t in enumerate(dict):
-#     print(t[0])
+for i , t in enumerate(dict):
+    for k, v in t.items():
+        print(v['tarefa'])
