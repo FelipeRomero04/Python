@@ -76,7 +76,26 @@
 # print(list(correto))
 
 
-lista = ["a", "b", "c"]
-dict_lista = {i+1: v for i, v in enumerate(lista)}
+# lista = ["a", "b", "c"]
+# dict_lista = {i+1: v for i, v in enumerate(lista)}
 
-print(dict_lista) 
+# print(dict_lista) 
+
+
+dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : 'tbmnsei' }] 
+
+# for t in dict:
+#     for v in t.items():
+#         if v[0] == 'status':
+#             continue
+#         print(v[1]) #ANOTAR Q QUANDO DICT E PERCORRIDO COM .ITEMS(), OS VALORES SE TORNAM TUPLAS, PODENDO SER MANIPULADAS PELO INDÍCE. (PELO MENOS QND E UMA LISTA DE DIC, TESTA DICT NORMAL)
+
+
+dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : 'tbmnsei' }] 
+
+dict[0]['status'] = 'Sim'
+
+print(dict)
+
+# for i , t in enumerate(dict):
+#     print(t[0])
