@@ -49,13 +49,17 @@ def complete_task(lista): #concluida
             completed = input('Nº da tarefa à concluir: ').strip()
             if not completed:
                 return
-            completed = int(completed) - 1
-            if  0 > completed > len(lista):
+            completed = int(completed)
+            if 0 > completed > len(lista):
                 print('Essa Tarefa não existe.')
                 continue
 
         except ValueError:
             print('O campo foi preenchido com valores inválidos.')    
+            continue
+
+        if not num_tasks_end:
+            print('Essa Tarefa não existe')
             continue
 
         print('Tarefa concluida!')
@@ -68,9 +72,9 @@ def show_tasks(lista1, lista2):
 
     for i in range(len(lista1)):
         if i in lista2:
-            print(f'{i + 1}. [v]{lista1[i]}')
+            print(f'{i}. [v]{lista1[i]}')
             continue
-        print(f'{i + 1}. [ ]{lista1[i]}')    
+        print(f'{i}. [ ]{lista1[i]}')    
 
     if not lista1:
         print('Sua Lista de Tarefas está vazia!')
@@ -85,7 +89,7 @@ def remove_task(lista_tarefas, num_tarefas_concluidas):
             num_excluir = input('Número da Tarefa à ser removida[ENTER P/SAIR ]: ').strip()
             if not num_excluir:
                 return
-            num_excluir = int(num_excluir) - 1
+            num_excluir = int(num_excluir)
             if 0 > num_excluir > len(lista_tarefas):
                 print('Essa Tarefa não existe')
                 continue
@@ -96,7 +100,7 @@ def remove_task(lista_tarefas, num_tarefas_concluidas):
         print('Tarefa Removida!')
         lista_tarefas.pop(num_excluir)
 
-        if num_excluir in num_tarefas_concluidas: 
+        if num_excluir in num_tarefas_concluidas: #
             num_tarefas_concluidas.remove(num_excluir)#Remove o numero dentro de tarefas concluidas
         break
 
