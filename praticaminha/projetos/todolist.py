@@ -131,5 +131,5 @@ while True:
         continue
 
 
-
-
+#Tenta criar uma interface, mas antes
+#Adiocione uma função de editar tarefa e desconcluir um tarefa
