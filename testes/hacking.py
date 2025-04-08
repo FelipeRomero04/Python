@@ -1,13 +1,27 @@
-# lista = [4, 5, 2, 5, 2, 4]
+import tkinter as tk
 
-# pares = list(filter(lambda x: x % 2 == 0, lista))
+def inserir_inicio():
+    entrada.insert(0, "INÍCIO ")
 
-# print(pares)
+def inserir_meio():
+    entrada.insert(5, "MEIO ")
 
+def inserir_fim():
+    entrada.insert(tk.END, " FIM")
 
-valores = [None, "Python", "", "Código", None, " ", "Filter"]
+janela = tk.Tk()
+janela.title("Teste de Índices no Entry")
 
-nao_vazios = filter(lambda v: v and v.strip(), valores)
+# Entry já começa com conteúdo
+entrada = tk.Entry(janela, width=40)
+entrada.insert(0, "Texto original aqui.")
+entrada.pack(pady=10)
 
-print(list(nao_vazios))  # Saída: ['Python', 'Código', 'Filter']
+# Botões para testar inserções
+tk.Button(janela, text="Inserir no início", command=inserir_inicio).pack()
+tk.Button(janela, text="Inserir no meio (posição 5)", command=inserir_meio).pack()
+tk.Button(janela, text="Inserir no fim", command=inserir_fim).pack()
+
+janela.mainloop()
+
     
