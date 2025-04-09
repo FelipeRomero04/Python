@@ -168,25 +168,50 @@ num_tasks_end = []
 #         continue
 
 
+#janela principal
+
 janela = Tk()
 janela.title('Lista de Tarefas')
 janela.config(background='#253034')
-
-# campo = Frame(janela, background='white', width=100, height=100)
-
-
-#Campo pra escrever a tarefa
-
-digit_task = Entry(janela, bg='white', width=40)
-digit_task.insert(0,'')
-digit_task.grid(column=1, row=0)
-
-#Crindo botão adicionar
-add_button = Button(janela, text='Adicionar', bg='#253034', fg='white', relief='groove')
-add_button.grid(column=2, row=0)
+janela.geometry('1440x900')
+janela.minsize(width=720, height=405)
+janela.resizable(True, True) #largura e altura responsivos
 
 
 
+
+ 
 
 
 janela.mainloop()
+
+
+
+
+
+
+
+
+
+#Retangulo
+
+# campo = Frame(janela, bg='#2a3439', width=600, height=350)
+# campo.pack(padx=20)
+
+
+# # canvas = Canvas(janela, width=600, height=350, bg='#2a3439')
+# # canvas.create_rectangle(0, 0, 500, 300, outline='#2a3439')
+# # canvas.grid(column=5, row=10, pady=145)
+
+
+# #Campo pra escrever a tarefa
+
+# digit_task = Entry(janela, bg='white', width=40)
+# digit_task.insert(0,'')
+# digit_task.pack()
+
+# #Criando botão adicionar
+# add_button = Button(janela, text='Adicionar', bg='#253034', fg='white', relief='groove')
+# add_button.pack(padx=30)
+
+
