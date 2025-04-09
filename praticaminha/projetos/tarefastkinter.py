@@ -172,16 +172,12 @@ tasks = []
 num_tasks_end = []
 
 def add_task():
-    while True:
-        repeat_task['text'] = ''
-        valor = digit_task.get()
-        if valor in tasks:
-            repeat_task['text'] = 'Tarefa já incluida na lista'
-            sleep(2)
-            continue
-        break
+    repeat_task['text'] = ''
+    valor = digit_task.get()
+    if valor in tasks:
+        repeat_task['text'] = 'Tarefa já incluida na lista'
+        return
     tasks.append(valor)
-    print(tasks)
 
 
 #janela principal
@@ -204,14 +200,15 @@ digit_task.place(relx=0.13, rely=0.44, relwidth=0.7, relheight=0.07)
 #Adicionar
 adic_task = Button(retangulo, command=add_task,text='Adicionar',fg='white',background='#1e2a2e',relief='flat')
 adic_task.place(relx=0.84, rely=0.44, relwidth=0.1, relheight=0.07)
-repeat_task = Label(retangulo, text='', background='#2e3a3f', fg='white')
-repeat_task.place(relx=0.13 , rely=0.53, relwidth=0.3, relheight=0.05 )
+#texto se o valor for repetido
+repeat_task = Label(retangulo, text='', background='#2e3a3f', font=('Roboto', 11), fg='white')
+repeat_task.place(relx=0.09 , rely=0.53, relwidth=0.3, relheight=0.05 )
 
 
 
 
 
-
+#CRIAR LAYOUT COM BOTÕES DE EDITAR, CONCLUIR, REMOVER... PRA FICAR BUNITIN
  
 
 
