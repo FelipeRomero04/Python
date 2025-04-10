@@ -171,14 +171,22 @@ from time import sleep
 tasks = []
 num_tasks_end = []
 
+tarefas_adicionadas = 0
+
 def add_task():
     repeat_task['text'] = ''
     valor = digit_task.get()
+    if not valor:
+        repeat_task['text'] = 'Nenhuma Tarefa foi adicionada.'
+        return
     if valor in tasks:
         repeat_task['text'] = 'Tarefa já incluida na lista'
         return
+    if valor.isdigit():
+        repeat_task['text'] = 'Não são permitidos apenas números nesse campo.'
+        return
     tasks.append(valor)
-
+    print(tasks)
 
 #janela principal
 
