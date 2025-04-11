@@ -1,27 +1,33 @@
 import tkinter as tk
 
-def inserir_inicio():
-    entrada.insert(0, "INÍCIO ")
-
-def inserir_meio():
-    entrada.insert(5, "MEIO ")
-
-def inserir_fim():
-    entrada.insert(tk.END, " FIM")
-
 janela = tk.Tk()
-janela.title("Teste de Índices no Entry")
+janela.title("Label vs Canvas.create_text")
+janela.geometry("400x200")
 
-# Entry já começa com conteúdo
-entrada = tk.Entry(janela, width=40)
-entrada.insert(0, "Texto original aqui.")
-entrada.pack(pady=10)
+# Criar o canvas
+canvas = tk.Canvas(janela, bg="black", width=400, height=200)
+canvas.pack()
 
-# Botões para testar inserções
-tk.Button(janela, text="Inserir no início", command=inserir_inicio).pack()
-tk.Button(janela, text="Inserir no meio (posição 5)", command=inserir_meio).pack()
-tk.Button(janela, text="Inserir no fim", command=inserir_fim).pack()
+# Fundo visual (uma "caixa") só pra você ver o espaço
+canvas.create_rectangle(50, 40, 350, 160, fill="#253034")
 
-janela.mainloop()
+# --------- 1. Usando Label sobre o Canvas (com place) ---------
+label = tk.Label(janela,
+                 text="Texto com Label",
+                 font=("Arial", 14),
+                 fg="black",
+                 bg="white",
+                 padx=0,
+                 pady=0,
+                 borderwidth=0,
+                 highlightthickness=0)
+label.place(x=60, y=60)  # Posição sobre a área do canvas
 
-    
+# --------- 2. Usando create_text diretamente ---------
+canvas.create_text(60, 120, 
+                   text="Texto com create_text", 
+                   font=("Arial", 14), 
+                   fill="white", 
+                   anchor="nw")  # "nw" = canto superior esquerdo como referência
+
+tk.mainloop()

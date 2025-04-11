@@ -171,7 +171,6 @@ from time import sleep
 tasks = []
 num_tasks_end = []
 
-tarefas_adicionadas = 0
 
 def add_task():
     repeat_task['text'] = ''
@@ -186,7 +185,20 @@ def add_task():
         repeat_task['text'] = 'Não são permitidos apenas números nesse campo.'
         return
     tasks.append(valor)
-    print(tasks)
+
+    def show_task(lista):
+        for t in lista:
+            label_tasks['text'] = f'{t}'
+    show_task(tasks)
+
+
+#O Label so suporta um texto, logo não mostra todas iterações de um loop, somente o atual. Devo criar um Label para cada tarefa adicionada?
+
+
+
+#Percorrer a lista e mostrar no text do Label
+
+print(tasks)
 
 #janela principal
 
@@ -194,7 +206,7 @@ janela = Tk()
 janela.title('Lista de Tarefas')
 janela.config(background='#253034')
 janela.geometry('1440x900')
-janela.minsize(width=720, height=405)
+janela.minsize(width=720, height=405) #Aumentar dps
 janela.resizable(True, True) #largura e altura responsivos
 
 #Retangulo
@@ -203,26 +215,41 @@ retangulo.place(relx=0.2 , rely=0.24, relwidth=0.6 , relheight=0.5 ) #rel torna 
 
 #Entrada
 digit_task = Entry(retangulo, background='white')
-digit_task.place(relx=0.13, rely=0.44, relwidth=0.7, relheight=0.07)
+digit_task.place(relx=0.13, rely=0.24, relwidth=0.7, relheight=0.07)
 
 #Adicionar
 adic_task = Button(retangulo, command=add_task,text='Adicionar',fg='white',background='#1e2a2e',relief='flat')
-adic_task.place(relx=0.84, rely=0.44, relwidth=0.1, relheight=0.07)
+adic_task.place(relx=0.84, rely=0.24, relwidth=0.1, relheight=0.07)
+
 #texto se o valor for repetido
-repeat_task = Label(retangulo, text='', background='#2e3a3f', font=('Roboto', 11), fg='white')
-repeat_task.place(relx=0.09 , rely=0.53, relwidth=0.3, relheight=0.05 )
+repeat_task = Label(retangulo, text='', background='#2e3a3f', font=('Roboto', 10), fg='white', anchor='nw')
+#anchor = ancora o texto e uma pos especifica da caixa d/Label
+repeat_task.place(relx=0.13 , rely=0.33, relwidth=0.6, relheight=0.06 )
+
+#Retangulo menor para lista de tarefas
+retangulo_menor = Frame(retangulo, background='#1c2429', highlightbackground='#1a1f22', highlightthickness=1)
+retangulo_menor.place(relx=0.25 , rely=0.4 , relwidth=0.5 , relheight=0.58 )
+
+#Lista de tarefas
+label_tasks = Label(retangulo_menor, text='', bg='#1e2b30', fg='white', highlightbackground='#1a1f22',highlightthickness=0.8, anchor='center', font=('Arial', 10))
+label_tasks.place(relx=0.08 , rely=0.13 , relwidth=0.3 , relheight=0.1 )
 
 
 
 
 
-#CRIAR LAYOUT COM BOTÕES DE EDITAR, CONCLUIR, REMOVER... PRA FICAR BUNITIN
- 
 
+
+
+#Criar um label dentro do retangulo menor, Mostrando a lista, assim que o botão 'Adicionar' foi disparado(COMO? FUDEU)
 
 janela.mainloop()
 
 
+
+#Cores
+
+#2e3a3f - Cor do traingulo interno
 
 
 
