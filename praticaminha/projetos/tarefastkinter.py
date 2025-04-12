@@ -186,10 +186,12 @@ def add_task():
         return
     tasks.append(valor)
 
-    def show_task(lista):
-        for t in lista:
-            label_tasks['text'] = f'{t}'
-    show_task(tasks)
+    # def show_task(lista):
+    #     itens_lista = ''
+    #     for t in lista:
+    #         itens_lista += f'\n{t}'
+    #     label_tasks['text'] = itens_lista
+    # show_task(tasks)
 
 
 #O Label so suporta um texto, logo não mostra todas iterações de um loop, somente o atual. Devo criar um Label para cada tarefa adicionada?
@@ -231,12 +233,14 @@ retangulo_menor = Frame(retangulo, background='#1c2429', highlightbackground='#1
 retangulo_menor.place(relx=0.25 , rely=0.4 , relwidth=0.5 , relheight=0.58 )
 
 #Lista de tarefas
-label_tasks = Label(retangulo_menor, text='', bg='#1e2b30', fg='white', highlightbackground='#1a1f22',highlightthickness=0.8, anchor='center', font=('Arial', 10))
-label_tasks.place(relx=0.08 , rely=0.13 , relwidth=0.3 , relheight=0.1 )
+
+for i in range(len(tasks)):
+    label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[i]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
+    label_tasks.place(relx=0.08 , rely=0.13 , relwidth=0.3 , relheight=0.8 )
 
 
-
-
+#Uma variavel pra cada Label
+#Como foi feito no exemplo da cotação0
 
 
 
