@@ -168,10 +168,6 @@ def menu():
 
 from time import sleep
 
-tasks = []
-num_tasks_end = []
-
-
 def add_task():
     repeat_task['text'] = ''
     valor = digit_task.get()
@@ -186,21 +182,31 @@ def add_task():
         return
     tasks.append(valor)
 
-    # def show_task(lista):
-    #     itens_lista = ''
-    #     for t in lista:
-    #         itens_lista += f'\n{t}'
-    #     label_tasks['text'] = itens_lista
-    # show_task(tasks)
+    def show_task(lista):  #Criando um Label para cada item adicionado ao chamar a função add_task
+        for i in range(len(lista)):   
+            label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[i]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
+            label_tasks.place(x=1, y=11*i*2.1, relwidth=0.46)
+            list_label.append(label_tasks)
+            remove_task = Button(retangulo_menor, command=removed_task, text='X', bg='red', font=('Arial', 10), fg='white')
+            remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
+       
+    show_task(tasks)
+
+def removed_task():
+    for r in range(len(tasks)):
+        list_label[r].destroy()
+        tasks.remove(tasks[r])
+
+            
 
 
+# for dentro para usar o valor do i para remover o widget
+
+tasks = []
+num_tasks_end = []   
+list_label = []        
+       
 #O Label so suporta um texto, logo não mostra todas iterações de um loop, somente o atual. Devo criar um Label para cada tarefa adicionada?
-
-
-
-#Percorrer a lista e mostrar no text do Label
-
-print(tasks)
 
 #janela principal
 
@@ -232,11 +238,10 @@ repeat_task.place(relx=0.13 , rely=0.33, relwidth=0.6, relheight=0.06 )
 retangulo_menor = Frame(retangulo, background='#1c2429', highlightbackground='#1a1f22', highlightthickness=1)
 retangulo_menor.place(relx=0.25 , rely=0.4 , relwidth=0.5 , relheight=0.58 )
 
-#Lista de tarefas
 
-for i in range(len(tasks)):
-    label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[i]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
-    label_tasks.place(relx=0.08 , rely=0.13 , relwidth=0.3 , relheight=0.8 )
+
+
+janela.mainloop()
 
 
 #Uma variavel pra cada Label
@@ -247,7 +252,7 @@ for i in range(len(tasks)):
 
 #Criar um label dentro do retangulo menor, Mostrando a lista, assim que o botão 'Adicionar' foi disparado(COMO? FUDEU)
 
-janela.mainloop()
+
 
 
 
