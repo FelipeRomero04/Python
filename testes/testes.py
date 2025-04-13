@@ -61,10 +61,11 @@
 # lista = [{'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 28, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 48, 'cidade': 'Tr'}]
 
 
-lista = {'nome': 'Felipe'}
+# lista = {'nome': 'Felipe'}
 
+# cont = (t for t in lista.items())
 
-print(''.join(t for t in lista))
+# print(cont)
 
 # for n in lista.values():
 #     for l in n:
