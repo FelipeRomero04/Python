@@ -61,7 +61,10 @@
 # lista = [{'nome': 'Felipe', 'idade': 18, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 28, 'cidade': 'Tr'}, {'nome': 'Felipe', 'idade': 48, 'cidade': 'Tr'}]
 
 
-# lista = {'nome': 'Felipe'}
+lista = {'nome': 'Felipe'}
+
+
+print(''.join(t for t in lista))
 
 # for n in lista.values():
 #     for l in n:
@@ -97,6 +100,6 @@ dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : '
 
 # print(dict)
 
-for i , t in enumerate(dict):
-    for k, v in t.items():
-        print(v['tarefa'])
+# for i , t in enumerate(dict):
+#     for k, v in t.items():
+#         print(v['tarefa'])
