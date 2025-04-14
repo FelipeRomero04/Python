@@ -86,10 +86,10 @@
 # print(dict_lista) 
 
 
-dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : 'tbmnsei' }] 
+# dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : 'tbmnsei' }] 
 
-# for t in dict:
-#     for v in t.items():
+# # for t in dict:
+# #     for v in t.items():
 #         if v[0] == 'status':
 #             continue
 #         print(v[1]) #ANOTAR Q QUANDO DICT E PERCORRIDO COM .ITEMS(), OS VALORES SE TORNAM TUPLAS, PODENDO SER MANIPULADAS PELO INDÍCE. (PELO MENOS QND E UMA LISTA DE DIC, TESTA DICT NORMAL)
@@ -104,3 +104,21 @@ dict = [{'tarefa': 'cagar', 'status' : 'caguei'}, {'tarefa': 'sla', 'status' : '
 # for i , t in enumerate(dict):
 #     for k, v in t.items():
 #         print(v['tarefa'])
+
+import tkinter as tk
+
+def esperar_com_after():
+    label.config(text="Esperando 3 segundos...")
+    root.after(3000, lambda: label.config(text="Pronto!"))  # NÃO trava
+
+root = tk.Tk()
+root.geometry("300x150")
+
+label = tk.Label(root, text="Clique no botão", font=("Arial", 12))
+label.pack(pady=10)
+
+botao = tk.Button(root, text="Usar after()", command=esperar_com_after)
+botao.pack()
+
+root.mainloop()
+

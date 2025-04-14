@@ -198,7 +198,13 @@ def add_task():
                 lista.remove(lista[i])
     show_task(tasks)
 
-def removed_task(event):
+
+
+
+def removed_task(lista):
+    for i in range(len(lista)):
+    removed_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
+    removed_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
     
     is_pressed = True
     print(is_pressed)
