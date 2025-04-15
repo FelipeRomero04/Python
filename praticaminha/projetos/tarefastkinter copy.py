@@ -192,26 +192,50 @@ def add_task():
             #Botão remover
             remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
             remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
-            remove_task.bind('<ButtonPress-1>', removed_task)
-            if is_pressed:
-                list_label[i].destroy()
-                lista.remove(lista[i])
+            remove_task.bind('<Button-1>', pressionar)
+
+           
     show_task(tasks)
 
 
-
-
-def removed_task(lista):
-    for i in range(len(lista)):
-    removed_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
-    removed_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
-    
-    is_pressed = True
-    print(is_pressed)
-    
-
-
 is_pressed = False
+
+def pressionar(event):
+    is_pressed = True
+    if is_pressed:
+        for l in range(len(list_label) + 1):
+            list_label[l].destroy()
+            tasks.remove(tasks[l])
+            print(tasks)
+    
+
+
+
+
+
+
+
+          
+    
+
+
+
+  # 
+            # remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
+            # remove_task.bind('<ButtonPress-1>', removed_task)
+            # if is_pressed:
+            #    
+# def removed_task(lista):
+#     for i in range(len(lista)):
+#         remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
+#         
+    
+#     is_pressed = True
+#     print(is_pressed)
+    
+
+
+
     
 
 #O label reconhece diferentes valores da lista pelo 'i' do for, logo para excluir um elemento deve se usar a mesma lógica
