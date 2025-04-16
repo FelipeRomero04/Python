@@ -107,18 +107,25 @@
 
 import tkinter as tk
 
-def esperar_com_after():
-    label.config(text="Esperando 3 segundos...")
-    root.after(3000, lambda: label.config(text="Pronto!"))  # NÃO trava
+# def esperar_com_after():
+#     label.config(text="Esperando 3 segundos...")
+#     root.after(3000, lambda: label.config(text="Pronto!"))  # NÃO trava
 
 root = tk.Tk()
-root.geometry("300x150")
 
-label = tk.Label(root, text="Clique no botão", font=("Arial", 12))
-label.pack(pady=10)
+root.geometry('300x300')
 
-botao = tk.Button(root, text="Usar after()", command=esperar_com_after)
-botao.pack()
+for i in range(3):
+    botao = tk.Button(root, text=f"Botão {i}", command=lambda:print(i))
+    botao.pack()
+
+# root.geometry("300x150")
+
+# label = tk.Label(root, text="Clique no botão", font=("Arial", 12))
+# label.pack(pady=10)
+
+# botao = tk.Button(root, text="Usar after()", command=esperar_com_after)
+# botao.pack()
 
 root.mainloop()
 

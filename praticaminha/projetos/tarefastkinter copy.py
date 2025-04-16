@@ -184,30 +184,34 @@ def add_task():
 
     def show_task(lista):  #Criando um Label para cada item adicionado ao chamar a função add_task
         for i in range(len(lista)):   
-            
-            label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[i]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
-            label_tasks.place(x=1, y=11*i*2.1, relwidth=0.46)
-            list_label.append(label_tasks)
+            button_remove(i)
 
-            #Botão remover
-            remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
+            global is_pressed
+            is_pressed = False
+
+            remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white', command=lambda i=i: pressionar(i)) #Ler sobe 'congelar' a var no chatgpt
             remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
-            remove_task.bind('<Button-1>', pressionar)
 
-           
     show_task(tasks)
 
+def button_remove(indice):
+    label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[indice]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
+    label_tasks.place(x=1, y=11*indice*2.1, relwidth=0.46)
+    list_label.append(label_tasks)
 
-is_pressed = False
+#IMPORTANTE
+#Botar o codigo dos botões dentro de um loop
+           
 
-def pressionar(event):
-    is_pressed = True
-    if is_pressed:
-        for l in range(len(list_label) + 1):
-            list_label[l].destroy()
-            tasks.remove(tasks[l])
-            print(tasks)
-    
+#Pra cada Label um botão de apagar e criado, então talvez não seja preciso se referenciar ao label especifico ao apaga-lo
+
+
+def pressionar(indice):
+    print(indice)
+    list_label[indice].destroy()
+    tasks.pop(indice)
+    print(tasks)
+
 
 
 
