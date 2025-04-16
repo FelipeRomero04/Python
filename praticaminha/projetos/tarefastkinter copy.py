@@ -186,11 +186,12 @@ def add_task():
         for i in range(len(lista)):   
             button_remove(i)
 
-            global is_pressed
-            is_pressed = False
-
             remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white', command=lambda i=i: pressionar(i)) #Ler sobe 'congelar' a var no chatgpt
             remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
+        return show_task()
+#RETORNAR SHOW TASK, PARA USAR FORA DO ESCOPO DA DEF EXTERNA E USAR NO FINAL DE PRESSIONAR    
+#RETORNAR FUNÇÃO COM PARAMETRO? SE EU RETORNAR SEM PARAMETRO,POSSO COLOCAR DPS?? 
+
 
     show_task(tasks)
 
@@ -199,8 +200,7 @@ def button_remove(indice):
     label_tasks.place(x=1, y=11*indice*2.1, relwidth=0.46)
     list_label.append(label_tasks)
 
-#IMPORTANTE
-#Botar o codigo dos botões dentro de um loop
+
            
 
 #Pra cada Label um botão de apagar e criado, então talvez não seja preciso se referenciar ao label especifico ao apaga-lo
@@ -208,13 +208,18 @@ def button_remove(indice):
 
 def pressionar(indice):
     print(indice)
+    print(len(tasks))
     list_label[indice].destroy()
     tasks.pop(indice)
     print(tasks)
+    
 
 
 
-
+# def atualizar_interface():
+#     for l in list_label:
+#         l.destroy()
+#     list_label.clear()
 
 
 
