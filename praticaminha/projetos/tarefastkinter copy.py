@@ -168,7 +168,7 @@ def menu():
 
 from time import sleep
 
-def add_task():
+def add_task(lista):
     repeat_task['text'] = ''
     valor = digit_task.get()
     if not valor:
@@ -182,18 +182,12 @@ def add_task():
         return
     tasks.append(valor)
 
-    def show_task(lista):  #Criando um Label para cada item adicionado ao chamar a função add_task
-        for i in range(len(lista)):   
-            button_remove(i)
+    for i in range(len(lista)):   
+        button_remove(i)
+        show_task(i)
 
-            remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white', command=lambda i=i: pressionar(i)) #Ler sobe 'congelar' a var no chatgpt
-            remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
-        return show_task()
 #RETORNAR SHOW TASK, PARA USAR FORA DO ESCOPO DA DEF EXTERNA E USAR NO FINAL DE PRESSIONAR    
 #RETORNAR FUNÇÃO COM PARAMETRO? SE EU RETORNAR SEM PARAMETRO,POSSO COLOCAR DPS?? 
-
-
-    show_task(tasks)
 
 def button_remove(indice):
     label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[indice]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
@@ -201,9 +195,9 @@ def button_remove(indice):
     list_label.append(label_tasks)
 
 
-           
-
-#Pra cada Label um botão de apagar e criado, então talvez não seja preciso se referenciar ao label especifico ao apaga-lo
+def show_task(indice):
+    remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white', command=lambda i=indice: pressionar(indice)) #Ler sobe 'congelar' a var no chatgpt
+    remove_task.place(relx=0.90, y=11*indice*2.1, relwidth=0.06, relheight=0.09)
 
 
 def pressionar(indice):
@@ -277,7 +271,7 @@ digit_task = Entry(retangulo, background='white')
 digit_task.place(relx=0.13, rely=0.24, relwidth=0.7, relheight=0.07)
 
 #Adicionar
-adic_task = Button(retangulo, command=add_task,text='Adicionar',fg='white',background='#1e2a2e',relief='flat')
+adic_task = Button(retangulo, command=lambda: add_task(tasks),text='Adicionar',fg='white',background='#1e2a2e',relief='flat')
 adic_task.place(relx=0.84, rely=0.24, relwidth=0.1, relheight=0.07)
 
 #texto se o valor for repetido
