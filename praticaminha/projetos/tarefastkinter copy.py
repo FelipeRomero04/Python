@@ -183,29 +183,32 @@ def add_task(lista):
     tasks.append(valor)
 
     for i in range(len(lista)):   
-        button_remove(i)
         show_task(i)
+        button_remove(i)
+       
 
 #RETORNAR SHOW TASK, PARA USAR FORA DO ESCOPO DA DEF EXTERNA E USAR NO FINAL DE PRESSIONAR    
 #RETORNAR FUNÇÃO COM PARAMETRO? SE EU RETORNAR SEM PARAMETRO,POSSO COLOCAR DPS?? 
 
-def button_remove(indice):
+def show_task(indice):
     label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[indice]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
     label_tasks.place(x=1, y=11*indice*2.1, relwidth=0.46)
     list_label.append(label_tasks)
 
 
-def show_task(indice):
+def button_remove(indice):
     remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white', command=lambda i=indice: pressionar(indice)) #Ler sobe 'congelar' a var no chatgpt
     remove_task.place(relx=0.90, y=11*indice*2.1, relwidth=0.06, relheight=0.09)
 
-
 def pressionar(indice):
-    print(indice)
-    print(len(tasks))
+
     list_label[indice].destroy()
+    list_label.clear()
     tasks.pop(indice)
-    print(tasks)
+    print(f'num itens da lista de labels: {list(l for l in list_label)}')
+    print(f'num itens dentro da lista: {len(tasks)}')
+    print(f'lista: {tasks}')
+    janela.update_idletasks()
     
 
 
