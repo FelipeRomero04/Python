@@ -19,12 +19,30 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
         return 'black'
 
 def fail_safe(temperature, neutrons_produced_per_second, threshold):
-    percentage_safe = temperature * neutrons_produced_per_second
-    percentage_threshold = 90 * threshold / 100
-    print(percentage_safe)
-    print(percentage_threshold)
 
-fail_safe(temperature=1000, neutrons_produced_per_second=30, threshold=5000)
+    value_safe = temperature * neutrons_produced_per_second 
+    ninety_percent_threshold = threshold * 0.90
+    ten_percent_threshold = threshold * 0.10
+
+    menor = maior = False
+    if value_safe < ninety_percent_threshold:
+        return 'LOW'
+
+    if value_safe >= ninety_percent_threshold and value_safe < threshold:
+        menor = True
+
+    if not menor and threshold <= value_safe <= threshold + ten_percent_threshold :
+        maior = True
+    
+    if menor or maior:
+        return 'NORMAL'
+
+    else:
+        return 'DANGER' 
+        
+  
+
+print(fail_safe(temperature=1000, neutrons_produced_per_second=30, threshold=5000))
 
 
 
