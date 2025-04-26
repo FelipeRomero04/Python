@@ -38,9 +38,9 @@ for i, n in enumerate(media):
 print('==' * 20)
 
 while True:
-    aluno = input('Mostrar notas de qual aluno? [exit p/sair]: ')
+    aluno = input('Mostrar notas de qual aluno? [ENTER p/sair]: ')
 
-    if aluno in 'exit':
+    if not aluno:
         break
 
     aluno = int(aluno)
