@@ -23,7 +23,43 @@ def value_of_card(card):
     except ValueError:
         if card in ('K', 'Q', 'J'):
             card = 10
+        elif card == 'A':
+            card = 1
     return card   
 
-print(value_of_card('K'))
 
+def higher_card(card_one, card_two):
+    
+    if card_one in ('J', 'Q', 'K'):
+        card_one = 10
+
+    return (card_one, card_two) if card_one == card_two else max(card_one, card_two)
+
+print(higher_card('K', '10'))
+
+
+
+
+
+
+
+
+
+
+
+
+# card_one = 10 if card_one in ('J', 'Q', 'K') else card_one
+    # card_two =  if card_one in ('J', 'Q', 'K') else card_two
+    # if card_one in ('J', 'Q', 'K'):
+        
+    #     card_one = (card_one, 10)
+    # else:
+        
+    # return card_one
+    
+    # if card_one == 'A':
+    #     card_one = 1
+    # if card_two == 'A':
+    #     card_two = 1        
+    
+    # return (card_one, card_two) if card_one != card_two else max(card_one, card_two)
