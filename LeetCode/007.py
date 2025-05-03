@@ -11,3 +11,14 @@ def concatenate_rounds(rounds_1, rounds_2):
     :return: list - all rounds played.
     """
     return rounds_1 + rounds_2
+
+def approx_average_is_average(hand):
+    mediana = len(hand) / 2
+    media = sum(hand) / len(hand)
+    return (hand[0] + hand[-1] / 2) or mediana == media
+
+print(approx_average_is_average([1, 2, 3]))
+
+#Copiar sobre desempacotamento
+#Copiar a diferença de '**' e '*' na passagem de parâmetros
+#Voltar ao exercício anterior e ler o código da comunidade
