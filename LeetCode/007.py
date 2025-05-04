@@ -24,7 +24,7 @@ def approx_average_is_average(hand):
 
     return media in (first_last, mediana)
 
-    #VOLTAR NESSA TÁ MUITO RUIM
+    
 
 def average_even_is_average_odd(hand):
     """Return if the (average of even indexed card values) == (average of odd indexed card values).
