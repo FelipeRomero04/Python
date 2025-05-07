@@ -27,13 +27,17 @@ def above_threshold(student_scores, threshold):
 def letter_grades(highest):
    
 
-    media_real = highest - 41
+    media_real = highest - 40
     limite = media_real // 4
 
     lista = []
     nota = highest
-    for i in range(5):
+    for i in range(4):
         lista.append(nota)
         nota = nota - limite
         
     return lista
+
+print(letter_grades(87))
+
+#[41, 56, 71, 86]
