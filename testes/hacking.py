@@ -24,3 +24,7 @@ for x in (item1, item2):
     # media_par = sum(num_par) / len(num_par)
 
 
+lista = [["Charles", 90], ["Tony", 80], ["Alex", 100], ["Alex", 100]]
+
+for x in lista:
+    print(x)
