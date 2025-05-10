@@ -26,5 +26,24 @@ for x in (item1, item2):
 
 lista = [["Charles", 90], ["Tony", 80], ["Alex", 100], ["Alex", 100]]
 
-for x in lista:
-    print(x)
+# for x in lista:
+#     print(x)
+
+
+letra = '324'
+tupla = []
+
+tupla.extend(letra)
+
+print(tupla)
+
+
+def compare_records(azara_record, rui_record):
+    """Compare two record types and determine if their coordinates match.
+
+    :param azara_record: tuple - a (treasure, coordinate) pair.
+    :param rui_record: tuple - a (location, tuple(coordinate_1, coordinate_2), quadrant) trio.
+    :return: bool - do the coordinates match?
+    """
+
+    return tuple((i for i in azara_record[2])) == rui_record[1]
