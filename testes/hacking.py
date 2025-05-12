@@ -46,4 +46,8 @@ def compare_records(azara_record, rui_record):
     :return: bool - do the coordinates match?
     """
 
-    return tuple((i for i in azara_record[2])) == rui_record[1]
+    return tuple(azara_record[2]) == rui_record[1]
+
+
+dicionario = {'nome': 'Felipe'}
+
