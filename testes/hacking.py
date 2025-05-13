@@ -51,3 +51,9 @@ def compare_records(azara_record, rui_record):
 
 dicionario = {'nome': 'Felipe'}
 
+dict = {'madeira': 1, 'Ferro': 4}
+adicionar = {'madeira' : 4}
+
+
+
+print(dict)
