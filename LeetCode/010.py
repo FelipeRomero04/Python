@@ -63,9 +63,13 @@ def list_inventory(inventory):
     :param inventory: dict - an inventory dictionary.
     :return: list of tuples - list of key, value pairs from the inventory dictionary.
     """
-    for k, v in inventory.values():
-        print(k,v)
-    
+    lista = []
+
+    for k ,v in inventory.items():
+        if v != 0:
+            lista.append((k,v))
+        continue
+    return lista
 
 
 print(list_inventory({"coal":7, "wood":11, "diamond":2, "iron":7, "silver":0}))

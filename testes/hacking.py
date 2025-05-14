@@ -56,4 +56,5 @@ adicionar = {'madeira' : 4}
 
 
 
-print(dict)
+tupla = [valor for valor in range(5)]
+print(tupla)  # (0, 1, 2, 3, 4)
