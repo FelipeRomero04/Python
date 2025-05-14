@@ -41,24 +41,31 @@ def decrement_items(inventory, items):
 
 # Valores repetidos não são decrementados, pois o dict comprehession retorna o item como chave, ja que apenas uma chave e permitida, as proximas ocorrencias serão ignoradas
 
-print(decrement_items({"coal":3, "diamond":1, "iron":5}, ["diamond", "coal","coal", "iron", "iron"]))
 
 
-    # colection = create_inventory(items)
+def remove_item(inventory, item):
+    """Remove item from inventory if it matches `item` string.
 
-    # if not inventory in colection:
-    #     colection.update(items)
-    #     return colection
-    # if not inventory:
-    #     return colection
-    # items.append(list(inventory)[0])
+    :param inventory: dict - inventory dictionary.
+    :param item: str - item to remove from the inventory.
+    :return: dict - updated inventory with item removed. Current inventory if item does not match.
+    """
+    for i in inventory:
+        if i == item:
+            inventory.pop(item)
+            return inventory
+    return 
 
-    # return create_inventory(items)
 
-    # if inventory:
-    #     items.append(list(inventory)[0])
+def list_inventory(inventory):
+    """Create a list containing only available (item_name, item_count > 0) pairs in inventory.
+
+    :param inventory: dict - an inventory dictionary.
+    :return: list of tuples - list of key, value pairs from the inventory dictionary.
+    """
+    for k, v in inventory.values():
+        print(k,v)
     
-    # return create_inventory(items)
 
-    
 
+print(list_inventory({"coal":7, "wood":11, "diamond":2, "iron":7, "silver":0}))
