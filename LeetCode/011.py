@@ -5,7 +5,8 @@ def add_item(current_cart, items_to_add):
     :param items_to_add: iterable - items to add to the cart.
     :return: dict - the updated user cart dictionary.
     """
-
+    for k, v in current_cart.items():
+        
 
 
 
