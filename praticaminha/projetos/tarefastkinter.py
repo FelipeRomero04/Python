@@ -168,7 +168,7 @@ def menu():
 
 from time import sleep
 
-def add_task():
+def add_task(lista):
     repeat_task['text'] = ''
     valor = digit_task.get()
     if not valor:
@@ -182,30 +182,73 @@ def add_task():
         return
     tasks.append(valor)
 
-    def show_task(lista):  #Criando um Label para cada item adicionado ao chamar a função add_task
-        for i in range(len(lista)):   
-            
-            label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[i]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
-            label_tasks.place(x=1, y=11*i*2.1, relwidth=0.46)
-            list_label.append(label_tasks)
+    for i in range(len(lista)):   
+        show_task(i)
+        button_remove(i)
+       
 
-            #Botão remover
-            remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
-            remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
-            remove_task.bind('<ButtonPress-1>', removed_task)
-            if is_pressed:
-                list_label[i].destroy()
-                lista.remove(lista[i])
-    show_task(tasks)
+def show_task(indice):
+    label_tasks = Label(retangulo_menor, bg='#1e2b30', text=f'{tasks[indice]}', fg='white', font=('Arial', 10), anchor='nw', highlightbackground='#1a1f22',highlightthickness=0.8 )
+    label_tasks.place(x=1, y=11*indice*2.1, relwidth=0.46)
+    list_label.append(label_tasks)
 
-def removed_task(event):
+def button_remove(indice):
+    remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white', command=lambda i=indice: pressionar(indice)) #Ler sobe 'congelar' a var no chatgpt
+    remove_task.place(relx=0.90, y=11*indice*2.1, relwidth=0.06, relheight=0.09)
+    list_buttons.append(remove_task)
+
+def pressionar(indice): 
+    tasks.pop(indice)
+    atualizar_interface(indice)
+
+def atualizar_interface(indice): #destruindo widgets, e limpando listas
+    for i, l in enumerate(list_label):
+            l.destroy()
+    list_label.clear()
+
+    for i, b in enumerate(list_buttons):   
+            b.destroy()
+    list_buttons.clear()
+
+    for i in range(len(tasks)): #chamando as tasks atualizadas, apos serem removidas
+        show_task(i)
+        button_remove(i)
+
+   
     
-    is_pressed = True
-    print(is_pressed)
+#LER E COMPREENDER CADA LINHA DEPOIS 
+
+
+
+# def atualizar_interface():
+#     for l in list_label:
+#         l.destroy()
+#     list_label.clear()
+
+
+
+
+          
     
 
 
-is_pressed = False
+
+  # 
+            # remove_task.place(relx=0.90, y=11*i*2.1, relwidth=0.06, relheight=0.09)
+            # remove_task.bind('<ButtonPress-1>', removed_task)
+            # if is_pressed:
+            #    
+# def removed_task(lista):
+#     for i in range(len(lista)):
+#         remove_task = Button(retangulo_menor, text='X', bg='red', font=('Arial', 10), fg='white')
+#         
+    
+#     is_pressed = True
+#     print(is_pressed)
+    
+
+
+
     
 
 #O label reconhece diferentes valores da lista pelo 'i' do for, logo para excluir um elemento deve se usar a mesma lógica
@@ -216,7 +259,8 @@ is_pressed = False
 
 tasks = []
 num_tasks_end = []   
-list_label = []        
+list_label = []      
+list_buttons = []  
        
 #O Label so suporta um texto, logo não mostra todas iterações de um loop, somente o atual. Devo criar um Label para cada tarefa adicionada?
 
@@ -238,7 +282,7 @@ digit_task = Entry(retangulo, background='white')
 digit_task.place(relx=0.13, rely=0.24, relwidth=0.7, relheight=0.07)
 
 #Adicionar
-adic_task = Button(retangulo, command=add_task,text='Adicionar',fg='white',background='#1e2a2e',relief='flat')
+adic_task = Button(retangulo, command=lambda: add_task(tasks),text='Adicionar',fg='white',background='#1e2a2e',relief='flat')
 adic_task.place(relx=0.84, rely=0.24, relwidth=0.1, relheight=0.07)
 
 #texto se o valor for repetido

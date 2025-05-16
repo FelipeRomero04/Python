@@ -6,7 +6,7 @@ def add_item(current_cart, items_to_add):
     :return: dict - the updated user cart dictionary.
     """
     for k, v in current_cart.items():
-        
+        continue
 
 
 
@@ -14,7 +14,8 @@ def add_item(current_cart, items_to_add):
 
     
 
-    return {k: v + items_to_add.count(k) if items_to_add[i] in current_cart else current_cart.setdefault(items_to_add[i], 1) for i, (k ,v) in enumerate(current_cart.items())} #Ver no chatgpt depois de fazer da forma normal se e possivel
+    return {k: v + items_to_add.count(k) if items_to_add[i] in current_cart else current_cart.setdefault(items_to_add[i], 1) for i, (k ,v) in enumerate(current_cart.items())}
+ #Ver no chatgpt depois de fazer da forma normal se e possivel
     # return {k: v + items_to_add.count(k) for k, v in current_cart.items()}
 
 print(add_item({'Banana': 3, 'Apple': 2, 'Orange': 1},
