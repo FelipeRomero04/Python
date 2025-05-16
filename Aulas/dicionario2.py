@@ -12,7 +12,7 @@ dados2 = dados.setdefault('nome', 'Romero')
 
 #
 
-
+new_dict = {}
 new_dict.fromkeys(['branco', 'preto', 'marrom', 'azul', 'roxo'], 'sexo')
 # print(new_dict)
 
