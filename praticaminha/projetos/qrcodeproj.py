@@ -8,8 +8,8 @@ codeqr = qrcode.QRCode(
 ) 
 
 codeqr.add_data('youtube.com')
-codeqr.make(fit=True)
+codeqr.make(fit=True) #adapta o tamanho do qrcode automaticamente
 
 img = codeqr.make_image(fill_color='yellow', back_color='white')
-img.save('png.save')
+img.save('qrcode.png')
 
