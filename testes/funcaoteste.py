@@ -25,12 +25,17 @@
 
 
 
-def dobrar(lst):  #Função com paramentro de lista 
-    for i in range(len(lst)):
-        lst[i] *= 2
+# def dobrar(lst):  #Função com paramentro de lista 
+#     for i in range(len(lst)):
+#         lst[i] *= 2
 
-lista = [4, 5, 2, 1, 5 ]
-d = dobrar(lista)
-print(d)
+# lista = [4, 5, 2, 1, 5 ]
+# d = dobrar(lista)
+# print(d)
 
 #Copiar explicação no caderno
+
+
+a = sum((3, 5, 2, 4, 1, 2))
+
+print(a)
