@@ -15,6 +15,9 @@ class ContaBancaria:
     
     def sacar(self, valor):
         try:
+            if valor > self.saldo:
+                print('Saldo insuficiente para realizar o saque.')
+                return
             self.saldo -= Decimal(valor)
             print(f'{self.titular} fez um saque no valor de {valor:.2f} reais.')
         except Exception:
@@ -25,7 +28,7 @@ class ContaBancaria:
 
 
 
-conta = ContaBancaria('Felipe', -100)
+conta = ContaBancaria('Felipe', 10)
 
-conta.depositar(250.10)
+conta.sacar(10)
 conta.mostrar_saldo()
