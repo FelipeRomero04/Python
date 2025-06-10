@@ -1,16 +1,13 @@
 class Aluno:
     def __init__(self, nome, *notas):
         self.nome = nome
-        self.notas = list(notas)
+        self.notas = notas
         
 
     def adicionar_notas(self, nota):
-        list_nota = []
-        for n in self.notas:
-            list_nota.append(n)
+        
+        list_nota = list(self.notas)
         list_nota.append(nota)
-
-        self.notas.append(nota)
         return f'As notas do aluno {self.nome} são {self.notas}'
 
 
