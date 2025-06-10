@@ -1,26 +1,31 @@
-class ContaBancaria:
-    def __init__(self,titular, saldo):
-        self.titular = titular
-        self.saldo = saldo
+from decimal import Decimal
 
-    def depostitar(self,valor):
+class ContaBancaria:
+    def __init__(self,titular, saldo=0):
+        self.titular = titular
+        self.saldo = Decimal(saldo)
+
+    def depositar(self,valor):
         try:
-            self.saldo += valor
-            print(f'{self.titular} fez um deposito no valor de {valor} reais.')
+            self.saldo += Decimal(valor)
+            print(f'{self.titular} fez um deposito no valor de {valor:.2f} reais.')
         except Exception:
             print('Valor inserido inválido')
        
     
     def sacar(self, valor):
         try:
-            self.saldo -= valor
-            print(f'{self.titular} fez um saque no valor de {valor} reais.')
+            self.saldo -= Decimal(valor)
+            print(f'{self.titular} fez um saque no valor de {valor:.2f} reais.')
         except Exception:
             print('Valor inserido inválido.')
 
     def mostrar_saldo(self):
-        print(f'O seu saldo é de {self.saldo}')
+        print(f'O seu saldo total é de {self.saldo:.2f}')
 
 
 
-conta = ContaBancaria('Felipe', 1000)
+conta = ContaBancaria('Felipe', -100)
+
+conta.depositar(250.10)
+conta.mostrar_saldo()
