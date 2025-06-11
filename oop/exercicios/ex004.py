@@ -1,27 +1,34 @@
 class Aluno:
-    def __init__(self, nome, notas):
+    def __init__(self, nome):
         self.nome = nome
-        self.notas = notas
+        self.notas = []
        
     def adicionar_notas(self, *nota):
         try:
             for n in nota:
+                if not 0 <= n <= 10:
+                    return 'ERRO: As notas devem ser definidas de 0 á 10.'
                 self.notas.append(n)
-            return f'As notas do aluno {self.nome} são {self.notas}'
+
         except Exception:
             raise ('Erro: Os valores informados são inválidos...') 
 
 
     def media(self):
         media = float(sum(self.notas) / len(self.notas))
-        return f'Média do aluno: {self.nome} - {media:.2f}'
+        return media
+    
+    def mostrar_notas(self):
+        return f'Aluno: {self.nome} \nNotas: {self.notas} \nMédia: {self.media()}'
         
 
-dados_aluno = Aluno('Felipe', [4,2,5,1])
+dados_aluno = Aluno('Felipe')
 
-print(dados_aluno.adicionar_notas(4,4,2,1))
-print(dados_aluno.media())
+print(dados_aluno.adicionar_notas(10, -1, 4, 2))
+print(dados_aluno.mostrar_notas())
 
+
+#Arruma isso putaqpariu
         
 #Ver como colocar listas nisso esqueci
 
